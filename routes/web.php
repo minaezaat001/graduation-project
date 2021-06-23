@@ -35,14 +35,3 @@ Route::get('/assiment', function () {
 Route::get('/quiz', function () {
     return view('instructor.quiz');
 })->name('instructor.quiz');
-
-// End  Just For Test//
-
-// test for ahdoia
-Route::get('/ahdota', function () {
-    return 'اهدويا الاعسولا ';
-});
-
-
-
-// anan memememmemem
