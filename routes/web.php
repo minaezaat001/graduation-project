@@ -37,3 +37,8 @@ Route::get('/quiz', function () {
 })->name('instructor.quiz');
 
 // End  Just For Test//
+
+// test for ahdoia
+Route::get('/ahdota', function () {
+    return 'اهدويا الاعسولا ';
+});
