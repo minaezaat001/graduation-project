@@ -1,0 +1,211 @@
+/* 
+    01- General Style
+*/
+:root {
+    --mainColor: #000b76;
+    --sacnedColor: #350076;
+    --trheeColor: #00766a;
+    --white: #fff;
+    --gray: #ccc;
+    --black: #232323;
+}
+html {
+    scroll-behavior: smooth;
+    position: relative;
+}
+body {
+    direction: rtl;
+    font-family: "Cairo", sans-serif;
+}
+input:focus,
+textarea:focus,
+button:focus,
+select:focus {
+    outline: none;
+    box-shadow: none !important;
+}
+textarea {
+    resize: none;
+}
+
+input[type="file"] {
+    overflow: hidden;
+}
+.btn {
+    filter: hue-rotate(0deg);
+    transition: filter 1.5s ease-in;
+    -webkit-transition: filter 1.5s ease-in;
+    -moz-transition: filter 1.5s ease-in;
+    -ms-transition: filter 1.5s ease-in;
+    -o-transition: filter 1.5s ease-in;
+}
+.btnStyle {
+    background: #000428;
+    background: -webkit-linear-gradient(to right, #004e92, #000428);
+    background: linear-gradient(to right, #004e92, #000428);
+    color: var(--white) !important;
+}
+.addBtnStyle {
+    color: var(--white) !important;
+    background: #283c86;
+    background: -webkit-linear-gradient(to right, #45a247, #283c86);
+    background: linear-gradient(to right, #45a247, #283c86);
+}
+.closeBtnStyle {
+    color: var(--white) !important;
+    background: #c31432;
+    background: -webkit-linear-gradient(to right, #240b36, #c31432);
+    background: linear-gradient(to right, #240b36, #c31432);
+}
+.btnStyle:hover,
+.addBtnStyle:hover,
+.closeBtnStyle:hover {
+    filter: hue-rotate(360deg);
+    -webkit-filter: hue-rotate(360deg);
+}
+.off {
+    display: none;
+}
+.box-file {
+    position: relative;
+}
+.box-file svg {
+    fill: currentColor;
+    margin-left: 10px;
+}
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+.inputfile-1 + label {
+    color: var(--white);
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    left: 0;
+    padding: 10px;
+    top: 0;
+    filter: hue-rotate(0deg);
+    transition: filter 1s;
+    background: #000046;
+    background: -webkit-linear-gradient(to left, #0780a1, #000046);
+    background: linear-gradient(to left, #0780a1, #000046);
+    -webkit-filter: hue-rotate(0deg);
+    -webkit-transition: filter 1s;
+    -moz-transition: filter 1s;
+    -ms-transition: filter 1s;
+    -o-transition: filter 1s;
+}
+.inputfile-1:focus + label,
+.inputfile-1.has-focus + label,
+.inputfile-1 + label:hover {
+    filter: hue-rotate(360deg);
+    -webkit-filter: hue-rotate(360deg);
+}
+.table-responsive {
+    box-shadow: 0 0 15px 0 #ccc;
+}
+.thead-colorful {
+    color: #fff;
+    background: #c33764;
+    background: -webkit-linear-gradient(to right, #1d2671, #c33764);
+    background: linear-gradient(to right, #1d2671, #c33764);
+}
+.reload {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url("../images/book-loading.gif") no-repeat center #f3f2f3;
+}
+
+/* Header */
+header {
+    position: relative;
+}
+header .logo {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+}
+/* Start Questions Area */
+.questions {
+    height: 387px;
+    overflow-y: scroll;
+}
+.question {
+    position: relative;
+}
+
+.answer_area {
+    margin: 20px;
+    position: relative;
+    border-bottom: 2px solid #ddd;
+}
+.answer_area::marker {
+    font-size: 1.7em;
+    font-weight: bold;
+}
+.box_answer {
+    margin: 10px;
+    display: inline-block;
+}
+.removeQusetion {
+    padding: 15px;
+    background-color: red;
+    color: white;
+    position: absolute;
+    left: 0;
+    top: 10px;
+    cursor: pointer;
+}
+
+/* Footer */
+.copy {
+    color: var(--gray);
+    height: 300px;
+    background: url("../images/footer/footer.svg") no-repeat;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background-size: cover;
+    padding: 10px 0;
+}
+/* Home Page */
+.home-header {
+    background-image: url(../images/header/wave.svg);
+    background-size: cover;
+    min-height: 300px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 70px;
+    z-index: -1;
+}
+.nav-home {
+    background-color: #000b76;
+    position: -webkit-sticky !important;
+    position: sticky !important;
+    top: 0;
+    z-index: 2;
+}
+.nav-home .nav-link {
+    color: #fff !important;
+}
+#shows {
+    background-color: #f1f1f1;
+}
+.home-page .desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    margin: 0 20px;
+}

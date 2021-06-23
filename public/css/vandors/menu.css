@@ -1,0 +1,150 @@
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+.icon-menu {
+    height: 80px;
+    width: 80px;
+    line-height: 80px;
+    background-color: #fff;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    box-shadow: 0 0 15px 0 #333;
+    margin: 10px auto 20px;
+}
+.icon-menu .icon {
+    width: 50px;
+    height: 50px;
+}
+.title-menu {
+    color: #fff;
+}
+.menu-tab {
+    width: 80px;
+    height: 90px;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+    transition: all 0.6s ease-in-out;
+    background-color: #000b76;
+    padding: 5px 20px 0;
+    border-radius: 0% 0% 100% 0% / 0% 0% 100% 0%;
+    -webkit-border-radius: 0% 0% 100% 0% / 0% 0% 100% 0%;
+    -moz-border-radius: 0% 0% 100% 0% / 0% 0% 100% 0%;
+    -ms-border-radius: 0% 0% 100% 0% / 0% 0% 100% 0%;
+    -o-border-radius: 0% 0% 100% 0% / 0% 0% 100% 0%;
+}
+.menu-tab div {
+    width: 30px;
+    height: 4px;
+    background-color: #fff;
+    display: block;
+    margin: 5px 12px;
+    transition: all 0.6s ease-in-out;
+}
+.menu-tab div:nth-child(1) {
+    margin-top: 20px;
+}
+
+/*end of menu-tab*/
+.menu-tab.active {
+    left: 345px;
+    transition: all 600ms ease-in-out;
+    top: 50px;
+    border-radius: 0 10px 10px 0;
+    -webkit-border-radius: 0 10px 10px 0;
+    -moz-border-radius: 0 10px 10px 0;
+    -ms-border-radius: 0 10px 10px 0;
+    -o-border-radius: 0 10px 10px 0;
+    width: 50px;
+    height: 60px;
+    padding: 0;
+}
+.menu-tab.active #one {
+    transform: translateY(9px) rotate(-135deg);
+    transition: all 0.6s ease-in-out;
+    background-color: #fff;
+}
+.menu-tab.active #two {
+    opacity: 0;
+    transition: 0.4s ease;
+}
+.menu-tab.active #three {
+    transform: translateY(-9px) rotate(-45deg);
+    transition: all 0.6s ease-in-out;
+    background-color: #fff;
+}
+
+.menu-hide {
+    width: 345px;
+    margin-left: -345px;
+    left: -345px;
+    height: 100vh;
+    position: fixed;
+    z-index: 10;
+    top: 0px;
+    transition: all 0.6s ease-in-out;
+    /*end of nav*/
+}
+
+.menu-hide nav ul li {
+    list-style-type: none;
+    text-align: center;
+    line-height: 70px;
+    transition: all 0.5s ease;
+}
+.menu-hide nav ul li:hover {
+    background-color: #fff;
+    transition: all 0.5s ease;
+    box-shadow: inset -10px 0 15px 0 #222;
+}
+
+.menu-hide nav ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #fff;
+    display: block;
+}
+.menu-hide nav ul li a span {
+    display: inline-block;
+    width: 105px;
+}
+.menu-hide nav ul li a img path {
+    fill: #fff;
+}
+.menu-hide nav ul li:hover a {
+    color: #000b76;
+}
+
+/*end of menu-hide*/
+.menu-hide.show {
+    left: 0px;
+    margin-left: 0px;
+    background-color: #fff;
+    transition: all 0.6s ease-in-out;
+    height: 100vh;
+    box-shadow: inset -5px 0 5px 0 rgb(1, 23, 97);
+    background: #000046;
+    background: -webkit-linear-gradient(to top, #1cb5e0, #000046);
+    background: linear-gradient(to top, #1cb5e0, #000046);
+    -webkit-transition: all 0.6s ease-in-out;
+    -moz-transition: all 0.6s ease-in-out;
+    -ms-transition: all 0.6s ease-in-out;
+    -o-transition: all 0.6s ease-in-out;
+}
+
+.icon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
+}

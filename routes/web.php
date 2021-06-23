@@ -16,3 +16,24 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+ // Start  Just For Test//
+Route::get('/lec', function () {
+    return view('instructor.lectures');
+})->name('instructor.lectures');
+
+Route::get('/research', function () {
+    return view('instructor.research');
+})->name('instructor.research');
+
+
+Route::get('/assiment', function () {
+    return view('instructor.assiment');
+})->name('instructor.assiment');
+
+Route::get('/quiz', function () {
+    return view('instructor.quiz');
+})->name('instructor.quiz');
+
+// End  Just For Test//
