@@ -47,7 +47,7 @@ Route::get('/quiz', function () {
 Route::prefix('instructor')->group(function () {
 
     Route::get('/createLec','instructorController@createLecture')->name('instructor.createLec');
-      Route::get('/storeLec','instructorController@storLecture')->name('instructor.storeLec');
+      Route::post('/storeLec','instructorController@storLecture')->name('instructor.storeLec');
 
 });
 

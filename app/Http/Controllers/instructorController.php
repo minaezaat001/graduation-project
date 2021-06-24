@@ -19,9 +19,11 @@ class instructorController extends Controller
      return view('instructor.lectures',['departments'=>$departments,'grades'=>$grad,'instructor'=>$instructor]);
     }
 
-    public function storLecture()
+    public function storLecture(Request $request)
     {
+        dd($request->all());
       // session()->get('key')
+
 
 
     }
