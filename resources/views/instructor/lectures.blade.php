@@ -82,7 +82,7 @@
 
 
 
-    <form method="POST" action="{{ route('instructor.storeLec') }}">
+    <form method="POST" action="{{ route('instructor.storeLec') }}" enctype="multipart/form-data">
 
         @csrf
         <section id="lectures" class="test block">
@@ -143,7 +143,8 @@
 
                                 <div class="box-file">
 
-                                    <input type="file" name="attach" id="file-1" class="inputfile inputfile-1" />
+                                    {{-- <input type="file" name="attach" id="file-1" class="inputfile inputfile-1" /> --}}
+                                    <input type="file" name="attach" id="file-1" class="inputfile inputfile-1">
                                     <label for="file-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17"
                                             viewBox="0 0 20 17">
                                             <path

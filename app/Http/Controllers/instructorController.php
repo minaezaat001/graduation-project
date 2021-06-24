@@ -31,17 +31,19 @@ class instructorController extends Controller
          'course_id'=>$request->course_id
         ]);
 
-         $val=  AttachmentLecture::create([
+    //  $request->file('attach')->storeAs('public/lectures','') ;
+
+          AttachmentLecture::create([
 
               'attach'=>$request->attach,
 
               'lecture_id'=>$lecture->id
           ]);
 
-          dd($lecture,$val);
-            return redirect(route('instructor.createLec'));
+           return redirect(route('instructor.createLec'));
 
       // session()->get('key')
+      // session(['key' => 'val'])
 
 
 
