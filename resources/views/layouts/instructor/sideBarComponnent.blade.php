@@ -5,11 +5,11 @@
                 <use xlink:href="#icon-user-tie"></use>
             </svg>
         </div>
-        <h3 class="title-menu">الاسم : دكتور ..</h3>
+        <h3 class="title-menu">الاسم : {{ $name }} </h3>
     </div>
     <ul>
         <li>
-            <a href="{{ route('instructor.lectures') }}">
+            <a href="#">
                 <span>المحاضرات</span>
 
                 <svg class="icon icon-book">
@@ -18,7 +18,7 @@
             </a>
         </li>
         <li>
-            <a href="{{ route('instructor.research') }}">
+            <a href="#">
                 <span>الابحاث</span>
                 <svg class="icon icon-paste">
                     <use xlink:href="#icon-paste"></use>

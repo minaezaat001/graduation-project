@@ -74,9 +74,13 @@
                 </path>
             </symbol>
         </svg>
-        @include('layouts.instructor.sideBarComponnent')
+        @include('layouts.instructor.sideBarComponnent',['name'=>'mina'])
+
     </div>
     <!-- End Navbar -->
+    {{ session(['key' => $instructor->Name]) }}
+
+
 
     <section id="lectures" class="test block">
         <div class="container">
@@ -86,21 +90,21 @@
                     <select data-menu>
                         <optgroup label="اختار الشعبة ">
                             <option value="" hidden>الشعبة</option>
-                            <option value="informationSystems">نظم ومعلومات ادراية</option>
-                            <option value="accounting">محاسبة</option>
-                            <option value="businessManagement">ادارة اعمال</option>
-                            <option value="languages">لغات</option>
-                            <option value="engineering">هندسة</option>
+                            @foreach ($departments as $department)
+                                <option value={{ $department->id }}>{{ $department->Name }}</option>
+                            @endforeach
                         </optgroup>
                     </select>
 
                     <select data-menu>
                         <optgroup label="اختار الفرقة ">
                             <option value="" hidden>الفرقة الدراسية</option>
-                            <option value="first">الاولي</option>
-                            <option value="second">الثانية</option>
-                            <option value="third">الثالثة</option>
-                            <option value="fourth">الرابعة</option>
+                            @foreach ($grades as $grade)
+                                <option value={{ $grade->id }}>{{ $grade->Name }}</option>
+
+                            @endforeach
+
+
                         </optgroup>
                     </select>
 

@@ -73,7 +73,7 @@
                 </path>
             </symbol>
         </svg>
-        @include('layouts.instructor.sideBarComponnent')
+        @include('layouts.instructor.sideBarComponnent',['name'=>'mina'])
     </div>
     <!-- End Navbar -->
 

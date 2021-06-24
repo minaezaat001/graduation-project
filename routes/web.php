@@ -35,3 +35,23 @@ Route::get('/assiment', function () {
 Route::get('/quiz', function () {
     return view('instructor.quiz');
 })->name('instructor.quiz');
+
+
+
+
+
+
+
+################################# Start Instructor Routes #################################
+
+Route::prefix('instructor')->group(function () {
+
+    Route::get('/createLec','instructorController@createLecture')->name('instructor.createLec');
+      Route::get('/storeLec','instructorController@storLecture')->name('instructor.storeLec');
+
+});
+
+
+
+
+################################# End Instructor Routes ###################################
