@@ -90,14 +90,14 @@
                 <h1 class="title mb-4">المحاضرات</h1>
                 <div class="from-border">
                     <div class="d-flex">
-                        <select data-menu name="department">
+                        {{-- <select data-menu name="department">
                             <optgroup label="اختار الشعبة ">
                                 <option value="" hidden>الشعبة</option>
                                 @foreach ($departments as $department)
                                     <option value={{ $department->id }}>{{ $department->Name }}</option>
                                 @endforeach
                             </optgroup>
-                        </select>
+                        </select> --}}
 
                         <select data-menu name="grade_id">
                             <optgroup label="اختار الفرقة ">

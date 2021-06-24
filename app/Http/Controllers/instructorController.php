@@ -14,14 +14,17 @@ class instructorController extends Controller
 {
  public function createLecture()
     {
-        $departments=Department::all();
+          $instructor = Instructor::find(1);
+        // $departments=Department::all();
+         $courses=Course::where('instructor_id',$instructor->id);
+         dd($courses);
         $grad=Grade::all();
-        $courses=Course::all();
-        $instructor = Instructor::find(1);
 
-     return view('instructor.lectures',['departments'=>$departments,'grades'=>$grad,'instructor'=>$instructor,'courses'=>$courses]);
+
+
+     return view('instructor.lectures',['grades'=>$grad,'instructor'=>$instructor,'courses'=>$courses]);
     }
-    
+
 
     public function storLecture(Request $request)
     {
