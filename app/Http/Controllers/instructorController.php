@@ -21,6 +21,7 @@ class instructorController extends Controller
 
      return view('instructor.lectures',['departments'=>$departments,'grades'=>$grad,'instructor'=>$instructor,'courses'=>$courses]);
     }
+    
 
     public function storLecture(Request $request)
     {
