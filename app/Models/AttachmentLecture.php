@@ -9,6 +9,13 @@ class AttachmentLecture extends Model
 {
     use HasFactory;
     protected $fillable = ['attach','lecture_id'];
+    public $timestamps = false;
+
+
+
+    protected $table = 'attachmentlectures';
+
+
 
     //start relation
 

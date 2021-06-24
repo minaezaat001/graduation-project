@@ -11,6 +11,8 @@ class Attachmentassiment extends Model
 
     protected $fillable = ['attach','assiment_id','student_id'];
 
+    protected $table = 'attachmentassiment';
+
     //start relation
 
     public function assiment()

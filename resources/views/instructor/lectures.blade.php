@@ -99,7 +99,7 @@
                             </optgroup>
                         </select>
 
-                        <select data-menu name="grade">
+                        <select data-menu name="grade_id">
                             <optgroup label="اختار الفرقة ">
                                 <option value="" hidden>الفرقة الدراسية</option>
                                 @foreach ($grades as $grade)
@@ -111,13 +111,13 @@
                             </optgroup>
                         </select>
 
-                        <select data-menu name="course">
+                        <select data-menu name="course_id">
                             <optgroup label="اختار الماده ">
                                 <option value="" hidden>اسم المادة</option>
-                                <option value="first">الاولي</option>
-                                <option value="second">الثانية</option>
-                                <option value="third">الثالثة</option>
-                                <option value="fourth">الرابعة</option>
+                                @foreach ($courses as $course)
+                                    <option value={{ $course->id }}>{{ $course->Name }}</option>
+
+                                @endforeach
                             </optgroup>
                         </select>
                     </div>
@@ -138,11 +138,12 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <input class="border w-100 border my-3 p-2" type="text" placeholder="اسم المحاضرة" />
+                                <input name="Name" class="border w-100 border my-3 p-2" type="text"
+                                    placeholder="اسم المحاضرة" />
 
                                 <div class="box-file">
-                                    <input type="file" name="file-1[]" id="file-1" class="inputfile inputfile-1"
-                                        data-multiple-caption="{count} files selected" multiple />
+
+                                    <input type="file" name="attach" id="file-1" class="inputfile inputfile-1" />
                                     <label for="file-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17"
                                             viewBox="0 0 20 17">
                                             <path
