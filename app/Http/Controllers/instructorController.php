@@ -16,7 +16,7 @@ class instructorController extends Controller
     {
           $instructor = Instructor::find(1);
         // $departments=Department::all();
-         $courses=Course::where('instructor_id',$instructor->id);
+         $courses=Course::where('instructor_id','=',$instructor->id)->get();
          dd($courses);
         $grad=Grade::all();
 
