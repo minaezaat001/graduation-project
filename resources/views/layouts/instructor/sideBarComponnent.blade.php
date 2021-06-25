@@ -9,7 +9,7 @@
     </div>
     <ul>
         <li>
-            <a href="#">
+            <a href="{{ route('instructor.createLec') }}">
                 <span>المحاضرات</span>
 
                 <svg class="icon icon-book">
@@ -18,7 +18,7 @@
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="{{ route('instructor.createResearch') }}">
                 <span>الابحاث</span>
                 <svg class="icon icon-paste">
                     <use xlink:href="#icon-paste"></use>
@@ -26,7 +26,7 @@
             </a>
         </li>
         <li>
-            <a href="{{ route('instructor.assiment') }}">
+            <a href="{{ route('instructor.createResearch') }}">
 
                 <span>التكاليف</span>
                 <svg class="icon icon-books">
@@ -36,7 +36,7 @@
         </li>
         <li>
 
-            <a href="{{ route('instructor.quiz') }}">
+            <a href="#">
                 <span>الامتحان</span>
                 <svg class="icon icon-files-empty">
                     <use xlink:href="#icon-files-empty"></use>

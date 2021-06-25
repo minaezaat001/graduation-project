@@ -18,23 +18,23 @@ Route::get('/', function () {
 });
 
 
- // Start  Just For Test//
-Route::get('/lec', function () {
-    return view('instructor.lectures');
-})->name('instructor.lectures');
+//  // Start  Just For Test//
+// Route::get('/lec', function () {
+//     return view('instructor.lectures');
+// })->name('instructor.lectures');
 
-Route::get('/research', function () {
-    return view('instructor.research');
-})->name('instructor.research');
+// Route::get('/research', function () {
+//     return view('instructor.research');
+// })->name('instructor.research');
 
 
-Route::get('/assiment', function () {
-    return view('instructor.assiment');
-})->name('instructor.assiment');
+// Route::get('/assiment', function () {
+//     return view('instructor.assiment');
+// })->name('instructor.assiment');
 
-Route::get('/quiz', function () {
-    return view('instructor.quiz');
-})->name('instructor.quiz');
+// Route::get('/quiz', function () {
+//     return view('instructor.quiz');
+// })->name('instructor.quiz');
 
 
 
@@ -47,7 +47,15 @@ Route::get('/quiz', function () {
 Route::prefix('instructor')->group(function () {
 
     Route::get('/createLec','instructorController@createLecture')->name('instructor.createLec');
-      Route::post('/storeLec','instructorController@storLecture')->name('instructor.storeLec');
+    Route::post('/storeLec','instructorController@storLecture')->name('instructor.storeLec');
+
+    Route::get('/createResearch','instructorController@createResearch')->name('instructor.createResearch');
+   Route::post('/storeResearch','instructorController@storResearch')->name('instructor.storeResearch');
+
+   Route::get('/createTask','instructorController@createResearch')->name('instructor.createTask');
+   Route::post('/storeTask','instructorController@storResearch')->name('instructor.storeTask');
+
+
 
 });
 
