@@ -38,4 +38,8 @@ public function instructors()
 {
     return $this->belongsToMany(instructors::class);
 }
+      public function assiment()
+      {
+          return $this->hasMany(assiment::class);
+      }
 }
