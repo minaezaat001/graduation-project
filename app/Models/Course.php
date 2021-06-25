@@ -30,7 +30,7 @@ class Course extends Model
 
     public function student()
     {
-        return $this->belongsToMany(student::class);
+        return $this->belongsToMany(student::class,'student_course');
     }
 
     public function grade()

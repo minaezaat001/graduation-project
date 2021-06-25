@@ -22,9 +22,4 @@ class assiment extends Model
     {
         return $this->hasMany(Attachmentassiment::class);
     }
-
-    public function grade()
-    {
-        return $this->belongsTo(Grade::class);
-    }
 }
