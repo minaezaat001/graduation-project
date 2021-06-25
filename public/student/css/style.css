@@ -1,0 +1,184 @@
+:root {
+    --mainColor: #000b76;
+    --sacnedColor: #350076;
+    --trheeColor: #00766a;
+    --white: #fff;
+    --gray: #ccc;
+    --black: #232323;
+}
+body {
+    direction: rtl;
+    font-family: "Cairo", sans-serif;
+}
+input:focus,
+textarea:focus,
+button:focus,
+select:focus {
+    outline: none;
+    box-shadow: none !important;
+}
+textarea {
+    resize: none;
+}
+
+input[type="file"] {
+    overflow: hidden;
+}
+.btn {
+    filter: hue-rotate(0deg);
+    transition: filter 1.5s ease-in;
+    -webkit-transition: filter 1.5s ease-in;
+    -moz-transition: filter 1.5s ease-in;
+    -ms-transition: filter 1.5s ease-in;
+    -o-transition: filter 1.5s ease-in;
+}
+.btnStyle {
+    background: #000428;
+    background: -webkit-linear-gradient(to right, #004e92, #000428);
+    background: linear-gradient(to right, #004e92, #000428);
+    color: var(--white) !important;
+}
+.addBtnStyle {
+    color: var(--white) !important;
+    background: #000046; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #1cb5e0, #000046); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #1cb5e0, #000046); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.closeBtnStyle {
+    color: var(--white) !important;
+    background: #c31432;
+    background: -webkit-linear-gradient(to right, #240b36, #c31432);
+    background: linear-gradient(to right, #240b36, #c31432);
+}
+.btnStyle:hover,
+.addBtnStyle:hover,
+.closeBtnStyle:hover {
+    filter: hue-rotate(360deg);
+    -webkit-filter: hue-rotate(360deg);
+}
+.task-show,
+.search-show {
+    display: none;
+}
+/* Icons */
+.icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
+}
+.icon-bars {
+    color: #fff;
+    width: 0.857421875em;
+}
+/* Menu */
+.head {
+    background-color: #000b76;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    right: 0;
+}
+.menu {
+    position: fixed;
+    padding: 10px 15px;
+    top: 60px;
+    z-index: 2;
+    background: #c33764; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #1d2671, #c33764); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #1d2671, #c33764); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    width: 50vw;
+    height: 100vh;
+}
+.menu li a {
+    color: #fff;
+    margin-bottom: 10px;
+}
+.menu li a span {
+    width: 100px;
+    display: inline-block;
+}
+/* Slider */
+.carousel-item img {
+    height: 200px;
+}
+
+/* Content */
+.box-content {
+    background: #fff;
+    box-shadow: 0 0 15px 0 #ccc;
+    text-align: center;
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transition: transform 0.4s;
+    -webkit-transition: transform 0.4s;
+    -moz-transition: transform 0.4s;
+    -ms-transition: transform 0.4s;
+    -o-transition: transform 0.4s;
+}
+.box-content img {
+    height: 100px;
+}
+.box-content .title-box {
+    padding: 20px;
+    color: #350076;
+}
+.box-content:hover {
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+/* table */
+.table {
+    box-shadow: 0 0 10px 0 #222;
+}
+.box-file {
+    position: relative;
+}
+.box-file svg {
+    fill: currentColor;
+    margin-left: 10px;
+}
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+.inputfile-1 + label {
+    color: var(--white);
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    left: 0;
+    padding: 10px;
+    top: 0;
+    filter: hue-rotate(0deg);
+    transition: filter 1s;
+    background: #000046;
+    background: -webkit-linear-gradient(to left, #0780a1, #000046);
+    background: linear-gradient(to left, #0780a1, #000046);
+    -webkit-filter: hue-rotate(0deg);
+    -webkit-transition: filter 1s;
+    -moz-transition: filter 1s;
+    -ms-transition: filter 1s;
+    -o-transition: filter 1s;
+}
+
+.inputfile-1:focus + label,
+.inputfile-1.has-focus + label,
+.inputfile-1 + label:hover {
+    filter: hue-rotate(360deg);
+    -webkit-filter: hue-rotate(360deg);
+}
