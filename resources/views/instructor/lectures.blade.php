@@ -172,29 +172,21 @@
                     <tr>
                         <th scope="col">اسم المحاضرة</th>
                         <th scope="col">ملف المحاضرة</th>
-                        <th scope="col">فديو المحاضرة</th>
-                        <th scope="col">تحميل المحاضرة</th>
+                        <th scope="col">التاريخ</th>
+                        <th scope="col">عرض</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">الاولي</th>
-                        <td>الاول</td>
-                        <td>الاول</td>
-                        <td>تحميل</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">الثانية</th>
-                        <td>الثاني</td>
-                        <td>الثاني</td>
-                        <td>تحميل</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">الثالثة</th>
-                        <td>الثالث</td>
-                        <td>الثالث</td>
-                        <td>تحميل</td>
-                    </tr>
+                  @foreach ($lecture as $lecture)
+                  <tr>
+                    <th scope="row">{{ $lecture->Name }}</th>
+                    @foreach ($lecture->attachmentlecture  as $lec )
+                    <td>{{ $lec->attach }}</td>
+                    @endforeach
+                    <td>{{$lecture->created_at  }}</td>
+                    <td>تحميل</td>
+                </tr>
+                  @endforeach
                 </tbody>
             </table>
         </div>
