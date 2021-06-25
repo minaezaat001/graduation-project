@@ -9,6 +9,7 @@ use App\Models\Grade;
 use App\Models\Instructor;
 use App\Models\Lecture;
 use Illuminate\Http\Request;
+use PhpParser\Node\Expr\List_;
 
 class instructorController extends Controller
 {
@@ -18,11 +19,6 @@ class instructorController extends Controller
         // $departments=Department::all();
          $courses=Course::where('instructor_id','=',$instructor->id)->get();
         $grad=Grade::all();
-
-        $g =Course::find(2);
-
-        dd($g->grade);
-
 
 
 

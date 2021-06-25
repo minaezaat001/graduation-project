@@ -34,4 +34,8 @@ public function course()
     return $this->belongsToMany(course::class);
 }
 
+public function instructors()
+{
+    return $this->belongsToMany(instructors::class);
+}
 }

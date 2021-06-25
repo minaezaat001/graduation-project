@@ -28,4 +28,9 @@ class Lecture extends Model
         return $this->hasMany(attachmentlecture::class);
     }
 
+    public function instructor()
+    {
+        return $this->belongsTo(Instructor::class);
+    }
+
 }
