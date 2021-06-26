@@ -146,54 +146,56 @@
     <!-- End Menu -->
 
     <!-- Content -->
+    <form method="post" action="{{ route('student.getlecture') }}">
     <section class="content-luatchar py-5">
         <div class="container">
             <h4 class="mb-4">المحاضرات</h4>
             <div class="btns d-flex">
-                <select data-menu>
-                    <optgroup label="اختار الماده ">
-                        <option value="" hidden>اختار المادة</option>
-                        <option value="first">الاولي</option>
-                        <option value="second">الثانية</option>
-                        <option value="third">الثالثة</option>
-                        <option value="fourth">الرابعة</option>
-                    </optgroup>
-                </select>
-                <button type="button" class="p-2 btn addBtnStyle">عرض المحاضرات</button>
+
+               @if(isset($course))
+               <select data-menu name="course_id">
+                <optgroup label="اختار الماده ">
+                    <option value="" hidden>اختار المادة</option>
+                 @foreach($course as $courses )
+                 <option value="{{ $courses->id }}">{{ $courses->Name }}</option>
+                 @endforeach
+                </optgroup>
+            </select>
+               @else
+               {{-- <option value="{{ $lecture->course->id }}">{{ $lecture->course->Name }}</option> --}}
+               @endif
+
+                    @csrf
+                    <button type="submit" class="p-2 btn addBtnStyle">عرض المحاضرات</button>
+                </form>
             </div>
             <div class="table-responsive">
                 <table class="table table-hover table-dark mt-5">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
-                            <th scope="col">Handle</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                            <td>@twitter</td>
-                        </tr>
-                    </tbody>
+                        <thead class="thead-colorful">
+                            <tr>
+                                <th scope="col">اسم المحاضرة</th>
+                                <th scope="col">ملف المحاضرة</th>
+                                <th scope="col">التاريخ</th>
+                                <th scope="col">عرض</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (isset($lecture))
+                            @foreach ($lecture as $lectures)
+                            <tr>
+                              <th scope="row">{{ $lectures->Name }}</th>
+                              @foreach ($lectures->attachmentlecture  as $lec )
+                              <td>{{ $lec->attach }}</td>
+                              @endforeach
+                              <td>{{$lectures->created_at  }}</td>
+                              <td>تحميل</td>
+                          </tr>
+                            @endforeach
+                            @else
+fdfsdf
+                            @endif
+
+                        </tbody>
                 </table>
             </div>
         </div>
