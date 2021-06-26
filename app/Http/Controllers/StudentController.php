@@ -15,14 +15,14 @@ class StudentController extends Controller
     {
         $student = Student::find(1);
         $course=$student->course;
-        return view('student.',['course'=>$course]);
-
+        return view('student.lectures',['course'=>$course]);
     }
 
     public function getlecture(Request $request)
     {
-        $course= $request->coursename;
-        $lecture=Lecture::where('course_id','=',$course);
-        return view('student.',['lecture'=>$lecture]);
+        $course= $request->course_id;
+        // dd($course->lecture);
+        $lecture=Lecture::where('course_id','=',$course)->get();
+        return view('student.lectures',['lecture'=>$lecture]);
     }
 }
