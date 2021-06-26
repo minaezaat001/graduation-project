@@ -77,7 +77,6 @@
     </div>
     <!-- End Navbar -->
     <form method="POST" action="{{ route('instructor.storeAssiment') }}">
-
         @csrf
         <section id="lectures" class="test block">
             <div class="container">
