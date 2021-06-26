@@ -146,7 +146,7 @@
     <!-- End Menu -->
 
     <!-- Content -->
-    <form method="post" action="{{ route('student.getlecture') }}">
+    <form method="post" action="{{ route('student.postlecture') }}">
     <section class="content-luatchar py-5">
         <div class="container">
             <h4 class="mb-4">المحاضرات</h4>

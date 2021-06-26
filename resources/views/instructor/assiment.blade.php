@@ -77,7 +77,11 @@
     </div>
     <!-- End Navbar -->
     <form method="POST" action="{{ route('instructor.storeAssiment') }}">
+<<<<<<< HEAD
+ @csrf
+=======
         @csrf
+>>>>>>> cfafec33c1b788d0ccab0f8d05b84a937d6304e4
         <section id="lectures" class="test block">
             <div class="container">
                 <h1 class="title mb-4">التكاليف</h1>
@@ -135,7 +139,6 @@
                                     <input name="Name" class="border w-100 border my-3 p-2" type="text"
                                         placeholder="اسم التكليف" />
 
-
                                 </div>
                                 <div class="modal-footer mt-3">
                                     <button type="submit"
@@ -153,31 +156,22 @@
             <table class="table table-hover">
                 <thead class="thead-colorful">
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col">اسم البحث</th>
+                        <th scope="col">الفرقه الدراسيه</th>
+                        <th scope="col">اسم الماده</th>
+
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
+               @foreach($assiment as $assiments)
+               <tr>
+                <th scope="row">{{ $assiments->Name }}</th>
+                <td>{{ $assiments->grade->Name }}</td>
+                <td>{{$assiments->course->Name  }}</td>
+
+            </tr>
+               @endforeach
+
                 </tbody>
             </table>
         </div>

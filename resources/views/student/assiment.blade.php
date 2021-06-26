@@ -149,55 +149,48 @@
     <section class="content-luatchar py-5">
         <div class="container">
             <h4 class="mb-4">التكاليف</h4>
-            <div class="btns d-flex">
-                <select data-menu>
-                    <optgroup label="اختار الماده ">
-                        <option value="" hidden>اختار المادة</option>
-                        <option value="first">الاولي</option>
-                        <option value="second">الثانية</option>
-                        <option value="third">الثالثة</option>
-                        <option value="fourth">الرابعة</option>
-                    </optgroup>
-                </select>
-                <button type="button" class="p-2 btn addBtnStyle taskBtn">عرض التكاليف</button>
-            </div>
+            <form method="post" action="{{ route('student.assimentpost') }}">
+           @csrf
+        <div class="btns d-flex">
+            @if(isset($course))
+            <select data-menu name="course_id">
+             <optgroup label="اختار الماده ">
+                 <option value="" hidden>اختار المادة</option>
+              @foreach($course as $courses )
+              <option value="{{ $courses->id }}">{{ $courses->Name }}</option>
+              @endforeach
+             </optgroup>
+         </select>
+            @else
+            @endif
+            <button type="submit" class="p-2 btn addBtnStyle taskBtn">عرض التكاليف</button>
+        </div>
+       </form>
             <div class="table-responsive task-show">
                 <table class="table table-hover table-dark mt-5">
-                    <thead>
+                    <thead class="thead-colorful">
                         <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
-                            <th scope="col">Handle</th>
+                            <th scope="col">اسم المحاضرة</th>
+                            <th scope="col">ملف المحاضرة</th>
+                            <th scope="col">التاريخ</th>
+                            <th scope="col">عرض</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @if (isset($assiment))
+                        @foreach ($assiment as $assiments)
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td><button type="button" class="py-2 px-3 btn btnStyle" data-toggle="modal"
-                                    data-target="#exampleModalCenter">ارسال</button></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            <td><button type="button" class="py-2 px-3 btn btnStyle" data-toggle="modal"
-                                    data-target="#exampleModalCenter">ارسال</button></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                            <td><button type="button" class="py-2 px-3 btn btnStyle" data-toggle="modal"
-                                    data-target="#exampleModalCenter">ارسال</button></td>
-                        </tr>
+                          <th scope="row">{{ $assiments->Name }}</th>
+                          <td>{{$assiments->grade->Name }}</td>
+                          <td>{{ $assiments->course->Name }}</td>
+                      </tr>
+                        @endforeach
+                        @else
+
+                        @endif
+
                     </tbody>
-                </table>
+            </table>
             </div>
 
             <!-- Send Form -->
