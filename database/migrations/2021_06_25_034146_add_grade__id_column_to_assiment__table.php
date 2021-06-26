@@ -14,7 +14,7 @@ class AddGradeIdColumnToAssimentTable extends Migration
     public function up()
     {
         Schema::table('assiment', function (Blueprint $table) {
-      $table->foreignId('grade_id')->constrained();
+       $table->foreignId('grade_id')->constrained();
 
         });
     }

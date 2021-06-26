@@ -19,6 +19,7 @@ class CreateAssimentResearchTable extends Migration
             $table->string('Name');
             $table->boolean('Kind');
             $table->foreignId('course_id')->constrained();
+            $table->foreignId('instructor_id')->constrained();
 
         });
     }
