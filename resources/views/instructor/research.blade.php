@@ -76,119 +76,114 @@
         @include('layouts.instructor.sideBarComponnent',['name'=>'mina'])
     </div>
     <!-- End Navbar -->
+    <form method="POST" action="{{ route('instructor.storeResearch') }}">
 
-    <section id="lectures" class="test block">
-        <div class="container">
-            <h1 class="title mb-4">الابحاث</h1>
-            <form action="" class="from-border">
-                <div class="d-flex">
-                    <select data-menu>
-                        <optgroup label="اختار الشعبة ">
-                            <option value="" hidden>الشعبة</option>
-                            <option value="informationSystems">نظم ومعلومات ادراية</option>
-                            <option value="accounting">محاسبة</option>
-                            <option value="businessManagement">ادارة اعمال</option>
-                            <option value="languages">لغات</option>
-                            <option value="engineering">هندسة</option>
-                        </optgroup>
-                    </select>
+        @csrf
+        <section id="lectures" class="test block">
+            <div class="container">
+                <h1 class="title mb-4">الابحاث</h1>
+                <div class="from-border">
+                    <div class="d-flex">
+                        {{-- <select data-menu name="department">
+                            <optgroup label="اختار الشعبة ">
+                                <option value="" hidden>الشعبة</option>
+                                @foreach ($departments as $department)
+                                    <option value={{ $department->id }}>{{ $department->Name }}</option>
+                                @endforeach
+                            </optgroup>
+                        </select> --}}
 
-                    <select data-menu>
-                        <optgroup label="اختار الفرقة ">
-                            <option value="" hidden>الفرقة الدراسية</option>
-                            <option value="first">الاولي</option>
-                            <option value="second">الثانية</option>
-                            <option value="third">الثالثة</option>
-                            <option value="fourth">الرابعة</option>
-                        </optgroup>
-                    </select>
+                        <select data-menu name="grade_id">
+                            <optgroup label="اختار الفرقة ">
+                                <option value="" hidden>الفرقة الدراسية</option>
+                                @foreach ($grades as $grade)
+                                    <option value={{ $grade->id }}>{{ $grade->Name }}</option>
 
-                    <select data-menu>
-                        <optgroup label="اختار الماده ">
-                            <option value="" hidden>اسم المادة</option>
-                            <option value="first">الاولي</option>
-                            <option value="second">الثانية</option>
-                            <option value="third">الثالثة</option>
-                            <option value="fourth">الرابعة</option>
-                        </optgroup>
-                    </select>
+                                @endforeach
+
+
+                            </optgroup>
+                        </select>
+
+                        <select data-menu name="course_id">
+                            <optgroup label="اختار الماده ">
+                                <option value="" hidden>اسم المادة</option>
+                                @foreach ($courses as $course)
+                                    <option value={{ $course->id }}>{{ $course->Name }}</option>
+
+                                @endforeach
+                            </optgroup>
+                        </select>
+                    </div>
                 </div>
-            </form>
 
-            <!-- Send Form -->
-            <button type="button" class="border border mt-3 py-2 px-3 btn addBtnStyle" data-toggle="modal"
-                data-target="#exampleModalCenter">أضافة يحث جديدة</button>
 
-            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">اضافة يحث</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <input class="border w-100 border my-3 p-2" type="text" placeholder="اسم اليحث" />
+                <!-- Send Form -->
+                <button type="button" class="border border mt-3 py-2 px-3 btn addBtnStyle" data-toggle="modal"
+                    data-target="#exampleModalCenter">أضافة يحث جديدة</button>
 
-                            <div class="box-file">
-                                <input type="file" name="file-1[]" id="file-1" class="inputfile inputfile-1"
-                                    data-multiple-caption="{count} files selected" multiple />
-                                <label for="file-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17"
-                                        viewBox="0 0 20 17">
-                                        <path
-                                            d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z" />
-                                    </svg>
-                                    <span>أختار الملف&hellip;</span></label>
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">اضافة يحث</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
-                        </div>
-                        <div class="modal-footer mt-3">
-                            <button class="border w-100 border mt-3 p-2 btn btnStyle">أضافة</button>
-                            <button class="border w-100 border mt-3 p-2 btn closeBtnStyle" data-dismiss="modal"
-                                aria-label="Close">اغلاق</button>
+                            <div class="modal-body">
+                                <input name="Name" class="border w-100 border my-3 p-2" type="text"
+                                    placeholder="اسم اليحث" />
+
+
+                            </div>
+                            <div class="modal-footer mt-3">
+                                <button type="submit" class="border w-100 border mt-3 p-2 btn btnStyle">أضافة</button>
+                                <button class="border w-100 border mt-3 p-2 btn closeBtnStyle" data-dismiss="modal"
+                                    aria-label="Close">اغلاق</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="py-4">
-                <h3>الابحاث المرسلة</h3>
-                <div class="table-responsive mt-4">
-                    <table class="table table-hover">
-                        <thead class="thead-colorful">
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+    </form>
+    <div class="py-4">
+        <h3>الابحاث المرسلة</h3>
+        <div class="table-responsive mt-4">
+            <table class="table table-hover">
+                <thead class="thead-colorful">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <!-- ./container -->
+    </div>
+    </div>
+    <!-- ./container -->
     </section>
 
     <!-- copy Right -->

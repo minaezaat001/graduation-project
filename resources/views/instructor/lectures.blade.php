@@ -177,16 +177,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                  @foreach ($lecture as $lecture)
-                  <tr>
-                    <th scope="row">{{ $lecture->Name }}</th>
-                    @foreach ($lecture->attachmentlecture  as $lec )
-                    <td>{{ $lec->attach }}</td>
+                    @foreach ($lecture as $lecture)
+                        <tr>
+                            <th scope="row">{{ $lecture->Name }}</th>
+                            @foreach ($lecture->attachmentlecture as $lec)
+                                <td>{{ $lec->attach }}</td>
+                            @endforeach
+                            <td>{{ $lecture->created_at }}</td>
+                            <td>تحميل</td>
+                        </tr>
                     @endforeach
-                    <td>{{$lecture->created_at  }}</td>
-                    <td>تحميل</td>
-                </tr>
-                  @endforeach
                 </tbody>
             </table>
         </div>

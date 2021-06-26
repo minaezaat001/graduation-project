@@ -51,7 +51,19 @@ Route::prefix('instructor')->group(function () {
 
 });
 
+Route::prefix('instructor')->group(function () {
 
+    Route::get('/createResearch','instructorController@createResearch')->name('instructor.createResearch');
+     Route::post('/storeResearch','instructorController@storeResearch')->name('instructor.storeResearch');
+
+});
+
+
+Route::prefix('instructor')->group(function () {
+
+    Route::get('/createAssiment','instructorController@createAssiment')->name('instructor.createAssiment');
+     Route::post('/storeAssiment','instructorController@storeAssiment')->name('instructor.storeAssiment');
+});
 
 
 ################################# End Instructor Routes ###################################

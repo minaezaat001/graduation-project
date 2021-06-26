@@ -9,7 +9,8 @@ class assiment extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['Name','Kind','course_id'];
+    protected $fillable = ['Name','Kind','course_id','grade_id'];
+    protected $table = 'assiment';
 
     //start relation
 

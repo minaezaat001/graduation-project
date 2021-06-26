@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\assiment;
 use App\Models\AttachmentLecture;
 use App\Models\Course;
 use App\Models\Department;
@@ -15,7 +16,8 @@ class instructorController extends Controller
 {
  public function createLecture()
     {
-          $instructor = Instructor::find(1);
+
+         $instructor = Instructor::find(1);
          $departments=Department::all();
          $courses=Course::all();
         $grad=Grade::all();
@@ -29,11 +31,13 @@ class instructorController extends Controller
 
     public function storLecture(Request $request)
     {
-        // dd($request->all());
+        $instructor = Instructor::find(1);
         $lecture = Lecture::create([
          'Name' => $request->Name,
          'grade_id'=>$request->grade_id,
-         'course_id'=>$request->course_id
+         'course_id'=>$request->course_id,
+         'instructor_id'=>$instructor->id
+
         ]);
 
     //  $request->file('attach')->storeAs('public/lectures','') ;
@@ -49,9 +53,50 @@ class instructorController extends Controller
 
       // session()->get('key')
       // session(['key' => 'val'])
+    }
 
+    public function createResearch()
+    {
+         $instructor = Instructor::find(1);
+         $departments=Department::all();
+         $courses=Course::all();
+         $grad=Grade::all();
+            return view('instructor.research',['grades'=>$grad,'instructor'=>$instructor,'courses'=>$courses]);
+    }
 
+      public function storeResearch(Request $request)
+    {
+        assiment::create([
+           'Name'=>$request->Name,
+           'course_id'=>$request->course_id,
+           'grade_id'=>$request->grade_id,
+           'Kind'=>0
 
+        ]);
+
+        return redirect(route('instructor.createResearch'));
+    }
+
+      public function createAssiment()
+    {
+          $instructor = Instructor::find(1);
+         $departments=Department::all();
+         $courses=Course::all();
+         $grad=Grade::all();
+            return view('instructor.assiment',['grades'=>$grad,'instructor'=>$instructor,'courses'=>$courses]);
+    }
+
+      public function storeAssiment(Request $request)
+    {
+        assiment::create([
+           'Name'=>$request->Name,
+           'course_id'=>$request->course_id,
+           'grade_id'=>$request->grade_id,
+           'Kind'=>1
+
+        ]);
+
+        return redirect(route('instructor.storeAssiment'));
     }
 
 }
