@@ -59,9 +59,16 @@ class instructorController extends Controller
     {
          $instructor = Instructor::find(1);
          $departments=Department::all();
-         $courses=Course::all();
+         $courses= $instructor->course;
          $grad=Grade::all();
-            return view('instructor.research',['grades'=>$grad,'instructor'=>$instructor,'courses'=>$courses]);
+         $getid=$instructor->id;
+        $assiment= assiment::where('instructor_id','=',$getid)->where('Kind','=',0)->get();
+
+
+
+            return view('instructor.research',['grades'=>$grad,'instructor'=>$instructor,'courses'=>$courses
+            ,'assiment'=>$assiment
+        ]);
     }
 
       public function storeResearch(Request $request)
@@ -79,11 +86,16 @@ class instructorController extends Controller
 
       public function createAssiment()
     {
-          $instructor = Instructor::find(1);
-         $departments=Department::all();
-         $courses=Course::all();
-         $grad=Grade::all();
-            return view('instructor.assiment',['grades'=>$grad,'instructor'=>$instructor,'courses'=>$courses]);
+          $instructor = Instructor::find(2);
+          $departments=Department::all();
+          $courses= $instructor->course;
+          $grad=Grade::all();
+          $getid=$instructor->id;
+         $assiment= assiment::where('instructor_id','=',$getid)->where('Kind','=',1)->get();
+
+            return view('instructor.assiment',['grades'=>$grad,'instructor'=>$instructor,'courses'=>$courses
+            ,'assiment'=>$assiment
+        ]);
     }
 
       public function storeAssiment(Request $request)

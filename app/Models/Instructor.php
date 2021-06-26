@@ -20,13 +20,17 @@ class Instructor extends Model
     {
         return $this->hasMany(Lecture::class);
     }
+    public function assiment()
+    {
+        return $this->hasMany(assiment::class);
+    }
 
     public function grade()
     {
         return $this->belongsToMany(Grade::class);
     }
 
-    
+
 
 
 }

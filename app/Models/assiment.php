@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Controllers\instructorController;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -9,7 +10,7 @@ class assiment extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['Name','Kind','course_id','grade_id'];
+    protected $fillable = ['Name','Kind','course_id','grade_id','instructor_id'];
     protected $table = 'assiment';
 
     //start relation
@@ -28,4 +29,10 @@ class assiment extends Model
     {
         return $this->belongsTo(Grade::class);
     }
+    public function instructor()
+    {
+        return $this->belongsTo(Instructor::class);
+    }
+
+
 }
