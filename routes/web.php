@@ -72,10 +72,17 @@ Route::prefix('instructor')->group(function () {
 ################################# Start Student Routes #################################
 
 Route::prefix('student')->group(function () {
-    Route::get('/getcourse','StudentController@getcourse')->name('student.getcourse');
+    Route::get('/getlecture','StudentController@getlecture')->name('student.getlecture');
 
-    Route::post('/getlecture','StudentController@getlecture')->name('student.getlecture');
+    Route::post('/postlecture','StudentController@postlecture')->name('student.postlecture');
 
     });
+
+    Route::prefix('student')->group(function () {
+        Route::get('/assimentget','StudentController@assimentget')->name('student.assimentget');
+
+        Route::post('assimentpost','StudentController@assimentpost')->name('student.assimentpost');
+
+        });
 
 ################################# End Student Routes #################################
