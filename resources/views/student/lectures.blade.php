@@ -76,50 +76,7 @@
                 <img src="images/header/logo2.jpg" width="40px" height="40px" alt="logo" />
             </div>
 
-            <nav role="navigation navbar navbar-expand-lg" class="menu show">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a href="index.html" class="nav-link">
-                            <span>الرئيسية</span>
-                            <svg class="icon icon-home">
-                                <use xlink:href="#icon-home"></use>
-                            </svg>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="lutchar.html" class="nav-link">
-                            <span>المحاضرات</span> <svg class="icon icon-book">
-                                <use xlink:href="#icon-book"></use>
-                            </svg></a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="search.html" class="nav-link">
-                            <span>الابحاث</span> <svg class="icon icon-paste">
-                                <use xlink:href="#icon-paste"></use>
-                            </svg></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="task.html" class="nav-link">
-                            <span>التكاليف</span> <svg class="icon icon-books">
-                                <use xlink:href="#icon-books"></use>
-                            </svg></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <span>الامتحان</span> <svg class="icon icon-files-empty">
-                                <use xlink:href="#icon-files-empty"></use>
-                            </svg></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <span>تسجيل خروج</span> <svg class="icon icon-log-out">
-                                <use xlink:href="#icon-log-out"></use>
-                            </svg></a>
-                    </li>
-                </ul>
-            </nav>
+            @include('layouts.student.sideBarComponnent')
         </div>
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
@@ -147,58 +104,58 @@
 
     <!-- Content -->
     <form method="post" action="{{ route('student.postlecture') }}">
-    <section class="content-luatchar py-5">
-        <div class="container">
-            <h4 class="mb-4">المحاضرات</h4>
-            <div class="btns d-flex">
+        <section class="content-luatchar py-5">
+            <div class="container">
+                <h4 class="mb-4">المحاضرات</h4>
+                <div class="btns d-flex">
 
-               @if(isset($course))
-               <select data-menu name="course_id">
-                <optgroup label="اختار الماده ">
-                    <option value="" hidden>اختار المادة</option>
-                 @foreach($course as $courses )
-                 <option value="{{ $courses->id }}">{{ $courses->Name }}</option>
-                 @endforeach
-                </optgroup>
-            </select>
-               @else
-               {{-- <option value="{{ $lecture->course->id }}">{{ $lecture->course->Name }}</option> --}}
-               @endif
+                    @if (isset($course))
+                        <select data-menu name="course_id">
+                            <optgroup label="اختار الماده ">
+                                <option value="" hidden>اختار المادة</option>
+                                @foreach ($course as $courses)
+                                    <option value="{{ $courses->id }}">{{ $courses->Name }}</option>
+                                @endforeach
+                            </optgroup>
+                        </select>
+                    @else
+                        {{-- <option value="{{ $lecture->course->id }}">{{ $lecture->course->Name }}</option> --}}
+                    @endif
 
                     @csrf
                     <button type="submit" class="p-2 btn addBtnStyle">عرض المحاضرات</button>
-                </form>
-            </div>
-            <div class="table-responsive">
-                <table class="table table-hover table-dark mt-5">
-                        <thead class="thead-colorful">
-                            <tr>
-                                <th scope="col">اسم المحاضرة</th>
-                                <th scope="col">ملف المحاضرة</th>
-                                <th scope="col">التاريخ</th>
-                                <th scope="col">عرض</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @if (isset($lecture))
-                            @foreach ($lecture as $lectures)
-                            <tr>
-                              <th scope="row">{{ $lectures->Name }}</th>
-                              @foreach ($lectures->attachmentlecture  as $lec )
-                              <td>{{ $lec->attach }}</td>
-                              @endforeach
-                              <td>{{$lectures->created_at  }}</td>
-                              <td>تحميل</td>
-                          </tr>
+    </form>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover table-dark mt-5">
+            <thead class="thead-colorful">
+                <tr>
+                    <th scope="col">اسم المحاضرة</th>
+                    <th scope="col">ملف المحاضرة</th>
+                    <th scope="col">التاريخ</th>
+                    <th scope="col">عرض</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (isset($lecture))
+                    @foreach ($lecture as $lectures)
+                        <tr>
+                            <th scope="row">{{ $lectures->Name }}</th>
+                            @foreach ($lectures->attachmentlecture as $lec)
+                                <td>{{ $lec->attach }}</td>
                             @endforeach
-                            @else
-fdfsdf
-                            @endif
+                            <td>{{ $lectures->created_at }}</td>
+                            <td><a href="{{ URL::asset($lec->attach) }}" target="_blank">عرض</td>
+                        </tr>
+                    @endforeach
+                @else
+                    fdfsdf
+                @endif
 
-                        </tbody>
-                </table>
-            </div>
-        </div>
+            </tbody>
+        </table>
+    </div>
+    </div>
     </section>
     <!-- Scripts -->
     <script src={{ URL::asset('student/js/vandors/jquery-3.0.min.js') }}></script>

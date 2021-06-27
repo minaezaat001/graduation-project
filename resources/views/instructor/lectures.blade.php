@@ -82,7 +82,7 @@
 
 
 
-    <form method="POST" action="{{ route('instructor.storeLec') }}">
+    <form method="POST" action="{{ route('instructor.storeLec') }}" enctype="multipart/form-data">
 
         @csrf
         <section id="lectures" class="test block">
@@ -184,7 +184,7 @@
                                 <td>{{ $lec->attach }}</td>
                             @endforeach
                             <td>{{ $lecture->created_at }}</td>
-                            <td>تحميل</td>
+                            <td><a href="{{ URL::asset($lec->attach) }}" target="_blank"> عرض</a></td>
                         </tr>
                     @endforeach
                 </tbody>

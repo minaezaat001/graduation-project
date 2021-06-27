@@ -76,50 +76,7 @@
                 <img src="images/header/logo2.jpg" width="40px" height="40px" alt="logo" />
             </div>
 
-            <nav role="navigation navbar navbar-expand-lg" class="menu show">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a href="index.html" class="nav-link">
-                            <span>الرئيسية</span>
-                            <svg class="icon icon-home">
-                                <use xlink:href="#icon-home"></use>
-                            </svg>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="lutchar.html" class="nav-link">
-                            <span>المحاضرات</span> <svg class="icon icon-book">
-                                <use xlink:href="#icon-book"></use>
-                            </svg></a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="search.html" class="nav-link">
-                            <span>الابحاث</span> <svg class="icon icon-paste">
-                                <use xlink:href="#icon-paste"></use>
-                            </svg></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="task.html" class="nav-link">
-                            <span>التكاليف</span> <svg class="icon icon-books">
-                                <use xlink:href="#icon-books"></use>
-                            </svg></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <span>الامتحان</span> <svg class="icon icon-files-empty">
-                                <use xlink:href="#icon-files-empty"></use>
-                            </svg></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <span>تسجيل خروج</span> <svg class="icon icon-log-out">
-                                <use xlink:href="#icon-log-out"></use>
-                            </svg></a>
-                    </li>
-                </ul>
-            </nav>
+            @include('layouts.student.sideBarComponnent')
         </div>
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">

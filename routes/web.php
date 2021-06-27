@@ -18,24 +18,6 @@ Route::get('/', function () {
 });
 
 
- // Start  Just For Test//
-Route::get('/lec', function () {
-    return view('instructor.lectures');
-})->name('instructor.lectures');
-
-Route::get('/research', function () {
-    return view('instructor.research');
-})->name('instructor.research');
-
-
-Route::get('/assiment', function () {
-    return view('instructor.assiment');
-})->name('instructor.assiment');
-
-Route::get('/quiz', function () {
-    return view('instructor.quiz');
-})->name('instructor.quiz');
-
 
 
 
@@ -72,17 +54,22 @@ Route::prefix('instructor')->group(function () {
 ################################# Start Student Routes #################################
 
 Route::prefix('student')->group(function () {
+
+     Route::get('/index','StudentController@index')->name('student.index');
+
+
     Route::get('/getlecture','StudentController@getlecture')->name('student.getlecture');
 
     Route::post('/postlecture','StudentController@postlecture')->name('student.postlecture');
+    Route::get('/assimentget','StudentController@assimentget')->name('student.assimentget');
+
+    Route::post('/assimentpost','StudentController@assimentpost')->name('student.assimentpost');
+
+         Route::get('/{course}','StudentController@getLecByCourse')->name('student.getLecByCourse');
+
 
     });
 
-    Route::prefix('student')->group(function () {
-        Route::get('/assimentget','StudentController@assimentget')->name('student.assimentget');
 
-        Route::post('assimentpost','StudentController@assimentpost')->name('student.assimentpost');
-
-        });
 
 ################################# End Student Routes #################################

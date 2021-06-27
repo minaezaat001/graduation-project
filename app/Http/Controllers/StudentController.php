@@ -12,9 +12,23 @@ class StudentController extends Controller
 {
     //
 
+    public function index()
+    {
+       $student = Student::find(4);
+        $course=$student->course;
+         return view('student.index',['course'=>$course]);
+    }
+
+
+    public function getLecByCourse(Course $course)
+    {
+
+      return view('student.lecturesByCources',['course'=>$course]);
+    }
+
     public function getlecture()
     {
-        $student = Student::find(1);
+        $student = Student::find(4);
         $course=$student->course;
         return view('student.lectures',['course'=>$course]);
     }
@@ -29,7 +43,7 @@ class StudentController extends Controller
 
     public function assimentget()
     {
-        $student = Student::find(1);
+        $student = Student::find(4);
         $course=$student->course;
         return view('student.assiment',['course'=>$course]);
     }
@@ -38,12 +52,13 @@ class StudentController extends Controller
     {
         $course= $request->course_id;
         $assiment = assiment::where('course_id','=',$course)->where('Kind','=',1)->get();
+
         return view('student.assiment',['assiment'=>$assiment]);
 
     }
     public function researchget()
     {
-        $student = Student::find(1);
+        $student = Student::find(4);
         $course=$student->course;
         return view('student.research',['course'=>$course]);
     }

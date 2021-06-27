@@ -5,11 +5,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>الرئيسية</title>
+    <title>المحاضرات</title>
     <!-- Links -->
     <link rel="stylesheet" href={{ URL::asset('student/css/vandors/bootstrap.min-rtl.css') }} />
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href={{ URl::asset('student/css/style.css') }} />
+    <link rel="stylesheet" href={{ URL::asset('student/css/vandors/select.css') }} />
+    <link rel="stylesheet" href={{ URL::asset('student/css/style.css') }} />
 </head>
 
 <body>
@@ -102,32 +103,63 @@
     <!-- End Menu -->
 
     <!-- Content -->
-    <section class="content py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-6 mb-3">
-                    @foreach ($course as $courses)
-                        <div class="box-content">
-                            <a href="{{ route('student.getLecByCourse', ['course' => $courses->id]) }}">
-                                <img class="w-100" src="images/slider/slider4.jpg" alt="" />
-                                <h4 class="title-box">{{ $courses->Name }}</h4>
-                            </a>
-                        </div>
-                    @endforeach
-                </div>
 
-                <!-- ./col -->
+    <section class="content-luatchar py-5">
+        <div class="container">
+            <h4 class="mb-4">المحاضرات</h4>
+            <div class="btns d-flex">
+
+                @if (isset($course))
+                    <select data-menu name="course_id">
+                        <optgroup label="اختار الماده ">
+                            <option value="" hidden>اختار المادة</option>
+
+                            <option value="{{ $course->id }} " selected>{{ $course->Name }} </option>
+
+                        </optgroup>
+                    </select>
+                @else
+                    {{-- <option value="{{ $lecture->course->id }}">{{ $lecture->course->Name }}</option> --}}
+                @endif
+
+                @csrf
+
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover table-dark mt-5">
+                    <thead class="thead-colorful">
+                        <tr>
+                            <th scope="col">اسم المحاضرة</th>
+                            <th scope="col">ملف المحاضرة</th>
+                            <th scope="col">التاريخ</th>
+                            <th scope="col">عرض</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+
+                        @foreach ($course->lecture as $lectures)
+                            <tr>
+                                <th scope="row">{{ $lectures->Name }}</th>
+                                @foreach ($lectures->attachmentlecture as $lec)
+                                    <td>{{ $lec->attach }}</td>
+                                @endforeach
+                                <td>{{ $lectures->created_at }}</td>
+                                <td><a href="{{ URL::asset($lec->attach) }}" target="_blank">عرض</td>
+                            </tr>
+                        @endforeach
+
+
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
     <!-- Scripts -->
-
     <script src={{ URL::asset('student/js/vandors/jquery-3.0.min.js') }}></script>
     <script src={{ URL::asset('student/js/vandors/bootstrap.min.js') }}></script>
+    <script src={{ URL::asset('student/js/vandors/select.js') }}></script>
     <script src={{ URL::asset('student/js/main.js') }}></script>
-
-
-
 </body>
 
 </html>

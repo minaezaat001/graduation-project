@@ -36,7 +36,7 @@
         </li>
         <li>
 
-            <a href="{{ route('instructor.quiz') }}">
+            <a href="#">
                 <span>الامتحان</span>
                 <svg class="icon icon-files-empty">
                     <use xlink:href="#icon-files-empty"></use>

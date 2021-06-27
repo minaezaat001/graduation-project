@@ -77,11 +77,9 @@
     </div>
     <!-- End Navbar -->
     <form method="POST" action="{{ route('instructor.storeAssiment') }}">
-<<<<<<< HEAD
- @csrf
-=======
+
         @csrf
->>>>>>> cfafec33c1b788d0ccab0f8d05b84a937d6304e4
+
         <section id="lectures" class="test block">
             <div class="container">
                 <h1 class="title mb-4">التكاليف</h1>
@@ -130,7 +128,7 @@
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">اضافة تكليف</h5>
+                                    <h5 class="modal-title" id="exampleModalLongTitle"> اضافة تكليف</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -143,6 +141,7 @@
                                 <div class="modal-footer mt-3">
                                     <button type="submit"
                                         class="border w-100 border mt-3 p-2 btn btnStyle">أضافة</button>
+
                                     <button class="border w-100 border mt-3 p-2 btn closeBtnStyle" data-dismiss="modal"
                                         aria-label="Close">اغلاق</button>
                                 </div>
@@ -163,14 +162,14 @@
                     </tr>
                 </thead>
                 <tbody>
-               @foreach($assiment as $assiments)
-               <tr>
-                <th scope="row">{{ $assiments->Name }}</th>
-                <td>{{ $assiments->grade->Name }}</td>
-                <td>{{$assiments->course->Name  }}</td>
+                    @foreach ($assiment as $assiments)
+                        <tr>
+                            <th scope="row">{{ $assiments->Name }}</th>
+                            <td>{{ $assiments->grade->Name }}</td>
+                            <td>{{ $assiments->course->Name }}</td>
 
-            </tr>
-               @endforeach
+                        </tr>
+                    @endforeach
 
                 </tbody>
             </table>

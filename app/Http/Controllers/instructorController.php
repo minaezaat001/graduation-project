@@ -23,9 +23,9 @@ class instructorController extends Controller
         $grad=Grade::all();
         $lecture=Lecture::where('instructor_id','=',$instructor->id)->get();
 
-     return view('instructor.lectures',['grades'=>$grad,'instructor'=>$instructor,'courses'=>$courses,
+      return view('instructor.lectures',['grades'=>$grad,'instructor'=>$instructor,'courses'=>$courses,
        'lecture'=>$lecture,
-    ]);
+         ]);
     }
 
 
@@ -40,11 +40,12 @@ class instructorController extends Controller
 
         ]);
 
-    //  $request->file('attach')->storeAs('public/lectures','') ;
+           $fileName= $request->attach->getclientoriginalname();
+            $pa=  $request->attach->move('lec',$fileName);
 
           AttachmentLecture::create([
 
-              'attach'=>$request->attach,
+              'attach'=>$pa,
 
               'lecture_id'=>$lecture->id
           ]);
@@ -73,10 +74,12 @@ class instructorController extends Controller
 
       public function storeResearch(Request $request)
     {
+          $instructor = Instructor::find(1);
         assiment::create([
            'Name'=>$request->Name,
            'course_id'=>$request->course_id,
            'grade_id'=>$request->grade_id,
+           'instructor_id'=>$instructor->id,
            'Kind'=>0
 
         ]);
@@ -100,10 +103,12 @@ class instructorController extends Controller
 
       public function storeAssiment(Request $request)
     {
+         $instructor = Instructor::find(1);
         assiment::create([
            'Name'=>$request->Name,
            'course_id'=>$request->course_id,
            'grade_id'=>$request->grade_id,
+            'instructor_id'=>$instructor->id,
            'Kind'=>1
 
         ]);
