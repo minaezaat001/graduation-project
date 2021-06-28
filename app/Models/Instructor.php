@@ -30,6 +30,11 @@ class Instructor extends Model
         return $this->belongsToMany(Grade::class);
     }
 
+    public function user()
+    {
+        return $this->belongsTo(user::class);
+    }
+
 
 
 

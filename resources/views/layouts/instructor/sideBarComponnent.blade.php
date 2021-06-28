@@ -5,7 +5,7 @@
                 <use xlink:href="#icon-user-tie"></use>
             </svg>
         </div>
-        <h3 class="title-menu">الاسم : {{ $name }} </h3>
+        <h3 class="title-menu">الاسم : {{ @Auth::user()->Instructor->Name }} </h3>
     </div>
     <ul>
         <li>
@@ -44,7 +44,7 @@
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="{{ route('auth.logout') }}">
                 <span>تسجيل خروج</span>
                 <svg class="icon icon-log-out">
                     <use xlink:href="#icon-log-out"></use>

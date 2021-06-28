@@ -10,6 +10,7 @@ use App\Models\Grade;
 use App\Models\Instructor;
 use App\Models\Lecture;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use PhpParser\Node\Expr\List_;
 
 class instructorController extends Controller
@@ -17,9 +18,10 @@ class instructorController extends Controller
  public function createLecture()
     {
 
-         $instructor = Instructor::find(1);
+         $instructor = Auth::user()->instructor;
+
          $departments=Department::all();
-         $courses=Course::all();
+        $courses=Course::all();
         $grad=Grade::all();
         $lecture=Lecture::where('instructor_id','=',$instructor->id)->get();
 
@@ -31,7 +33,7 @@ class instructorController extends Controller
 
     public function storLecture(Request $request)
     {
-        $instructor = Instructor::find(1);
+        $instructor = Auth::user()->instructor;
         $lecture = Lecture::create([
          'Name' => $request->Name,
          'grade_id'=>$request->grade_id,
@@ -58,7 +60,7 @@ class instructorController extends Controller
 
     public function createResearch()
     {
-         $instructor = Instructor::find(1);
+         $instructor = Auth::user()->instructor;
          $departments=Department::all();
          $courses= $instructor->course;
          $grad=Grade::all();
@@ -74,7 +76,7 @@ class instructorController extends Controller
 
       public function storeResearch(Request $request)
     {
-          $instructor = Instructor::find(1);
+          $instructor = Auth::user()->instructor;
         assiment::create([
            'Name'=>$request->Name,
            'course_id'=>$request->course_id,
@@ -103,7 +105,7 @@ class instructorController extends Controller
 
       public function storeAssiment(Request $request)
     {
-         $instructor = Instructor::find(1);
+         $instructor = Auth::user()->instructor;
         assiment::create([
            'Name'=>$request->Name,
            'course_id'=>$request->course_id,

@@ -35,7 +35,7 @@
                  </svg></a>
          </li>
          <li class="nav-item">
-             <a href="#" class="nav-link">
+             <a href="{{ route('auth.logout') }}" class="nav-link">
                  <span>تسجيل خروج</span> <svg class="icon icon-log-out">
                      <use xlink:href="#icon-log-out"></use>
                  </svg></a>

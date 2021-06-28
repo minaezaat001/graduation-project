@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 });
+
+      Route::post('/login','authController@login')->name('auth.login');
+    Route::get('/test', 'authController@any')->name('test');
+
 
 
 
@@ -73,3 +79,17 @@ Route::prefix('student')->group(function () {
 
 
 ################################# End Student Routes #################################
+
+
+
+
+
+
+Route::get('/signup' , 'authController@getSignup');
+
+Route::post('/signup' , 'AuthController@postSignup')->name('auth.signup.post');
+
+
+Route::get('logout', function () {
+    Auth::logout();
+})->name('auth.logout');

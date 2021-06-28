@@ -6,7 +6,10 @@ use App\Models\assiment;
 use App\Models\Course;
 use App\Models\Lecture;
 use App\Models\Student;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class StudentController extends Controller
 {
@@ -14,7 +17,7 @@ class StudentController extends Controller
 
     public function index()
     {
-       $student = Student::find(4);
+       $student =Auth::user()->student;
         $course=$student->course;
          return view('student.index',['course'=>$course]);
     }
@@ -28,7 +31,7 @@ class StudentController extends Controller
 
     public function getlecture()
     {
-        $student = Student::find(4);
+        $student =Auth::user()->student;
         $course=$student->course;
         return view('student.lectures',['course'=>$course]);
     }
@@ -43,7 +46,7 @@ class StudentController extends Controller
 
     public function assimentget()
     {
-        $student = Student::find(4);
+        $student =Auth::user()->student;
         $course=$student->course;
         return view('student.assiment',['course'=>$course]);
     }
@@ -58,7 +61,7 @@ class StudentController extends Controller
     }
     public function researchget()
     {
-        $student = Student::find(4);
+        $student =Auth::user()->student;
         $course=$student->course;
         return view('student.research',['course'=>$course]);
     }
@@ -70,4 +73,9 @@ class StudentController extends Controller
         return view('student.research',['assiment'=>$assiment]);
 
     }
+
+
+
+
+
 }

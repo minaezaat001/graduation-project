@@ -19,6 +19,8 @@ class CreateStudentsTable extends Migration
             $table->string('Phone');
             $table->integer('Code');
             $table->foreignId('grade_id')->constrained();
+             $table->foreignId('user_id')->constrained();
+
 
         });
     }

@@ -17,7 +17,8 @@ class CreateInstructorsTable extends Migration
             $table->id();
             $table->string('Name');
             $table->string('Phone');
-            $table->string('Email');
+            $table->integer('Code');
+             $table->foreignId('user_id')->constrained();
         });
     }
 
