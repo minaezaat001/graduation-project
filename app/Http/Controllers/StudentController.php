@@ -51,12 +51,10 @@ class StudentController extends Controller
         return view('student.assiment',['course'=>$course]);
     }
 
-    public function assimentpost(Request $request)
+    public function assimentpost(request $request)
     {
-        $course= $request->course_id;
-        $assiment = assiment::where('course_id','=',$course)->where('Kind','=',1)->get();
-
-        return view('student.assiment',['assiment'=>$assiment]);
+        $course =Course::find($request->course_id);
+         return view('student.assiment',['course'=>$course]);
 
     }
     public function researchget()
