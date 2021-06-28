@@ -19,8 +19,6 @@ Route::get('/', function () {
     return view('login');
 });
 
-      Route::post('/login','authController@login')->name('auth.login');
-    Route::get('/test', 'authController@any')->name('test');
 
 
 
@@ -33,28 +31,32 @@ Route::get('/', function () {
 ################################# Start Instructor Routes #################################
 
 Route::prefix('instructor')->group(function () {
+         Route::get('/getStudentsResearches/{assiment}','instructorController@getStudentsResearch')->name('instructor.StudentsResearches');
+
 
     Route::get('/createLec','instructorController@createLecture')->name('instructor.createLec');
-      Route::post('/storeLec','instructorController@storLecture')->name('instructor.storeLec');
-
-});
-
-Route::prefix('instructor')->group(function () {
-
-    Route::get('/createResearch','instructorController@createResearch')->name('instructor.createResearch');
-     Route::post('/storeResearch','instructorController@storeResearch')->name('instructor.storeResearch');
-
-});
-
-
-Route::prefix('instructor')->group(function () {
+    Route::post('/storeLec','instructorController@storLecture')->name('instructor.storeLec');
 
     Route::get('/createAssiment','instructorController@createAssiment')->name('instructor.createAssiment');
-     Route::post('/storeAssiment','instructorController@storeAssiment')->name('instructor.storeAssiment');
+    Route::post('/storeAssiment','instructorController@storeAssiment')->name('instructor.storeAssiment');
+
+
+     Route::get('/createResearch','instructorController@createResearch')->name('instructor.createResearch');
+     Route::post('/storeResearch','instructorController@storeResearch')->name('instructor.storeResearch');
+
+
+
 });
+
+
 
 
 ################################# End Instructor Routes ###################################
+
+
+
+
+
 
 
 ################################# Start Student Routes #################################
@@ -84,6 +86,8 @@ Route::prefix('student')->group(function () {
 
 
 
+ Route::post('/login','authController@login')->name('auth.login');
+    Route::get('/test', 'authController@any')->name('test');
 
 Route::get('/signup' , 'authController@getSignup');
 

@@ -61,8 +61,8 @@ class instructorController extends Controller
     public function createResearch()
     {
          $instructor = Auth::user()->instructor;
-         $departments=Department::all();
          $courses= $instructor->course;
+          $departments=Department::all();
          $grad=Grade::all();
          $getid=$instructor->id;
         $assiment= assiment::where('instructor_id','=',$getid)->where('Kind','=',0)->get();
@@ -89,9 +89,19 @@ class instructorController extends Controller
         return redirect(route('instructor.createResearch'));
     }
 
+
+    public function getStudentsResearch(assiment $assiment)
+    {
+        $researches=$assiment;
+
+        return view('instructor.studentsResearches',['researches'=>$researches]);
+    }
+
+
+
       public function createAssiment()
     {
-          $instructor = Instructor::find(2);
+          $instructor = Auth::user()->instructor;;
           $departments=Department::all();
           $courses= $instructor->course;
           $grad=Grade::all();

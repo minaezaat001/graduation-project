@@ -16,7 +16,7 @@ class CreateAttachmentAssimentResearchTable extends Migration
         Schema::create('attachmentassiment', function (Blueprint $table) {
             $table->id();
             $table->string('attach');
-            // $table->foreignId('assiment_id')->constrained();
+            //  $table->foreignId('assiment_id')->constrained();
             $table->unsignedBigInteger('assiment_id');
 
             $table->foreignId('student_id')->constrained();

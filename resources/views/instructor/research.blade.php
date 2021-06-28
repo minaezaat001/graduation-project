@@ -156,18 +156,22 @@
                         <th scope="col">اسم البحث</th>
                         <th scope="col">الفرقه الدراسيه</th>
                         <th scope="col">اسم الماده</th>
+                        <th scope="col"> عرض الابحاث المرسله</th>
+
 
                     </tr>
                 </thead>
                 <tbody>
-               @foreach($assiment as $assiments)
-               <tr>
-                <th scope="row">{{ $assiments->Name }}</th>
-                <td>{{ $assiments->grade->Name }}</td>
-                <td>{{$assiments->course->Name  }}</td>
+                    @foreach ($assiment as $assiments)
+                        <tr>
+                            <th scope="row">{{ $assiments->Name }}</th>
+                            <td>{{ $assiments->grade->Name }}</td>
+                            <td>{{ $assiments->course->Name }}</td>
+                            <td><a href="{{ route('instructor.StudentsResearches', ['assiment' => $assiments->id]) }}"
+                                    target="_blank">عرض</td>
 
-            </tr>
-               @endforeach
+                        </tr>
+                    @endforeach
 
                 </tbody>
             </table>
