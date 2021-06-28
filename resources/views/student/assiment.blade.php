@@ -110,21 +110,19 @@
                 @csrf
                 <div class="btns d-flex">
                     @if (isset($course))
-                        <select data-menu name="course_id">
-                            <optgroup label="اختار الماده ">
-                                <option value="" hidden>اختار المادة</option>
-                                @foreach ($course as $courses)
-                                    <option value="{{ $courses->id }}">{{ $courses->Name }}</option>
-                                @endforeach
-                            </optgroup>
-                        </select>
-                    @else
-                        <select data-menu name="course_id">
-                            <optgroup label="اختار الماده ">
+                   <select data-menu name="course_id">
+                    <optgroup label="اختار الماده ">
+                        <option value="" hidden>اختار المادة</option>
 
-                            </optgroup>
-                        </select>
-                    @endif
+                        @foreach ($course as $courses)
+                            <option value="{{ $courses->id }}">{{ $courses->Name }}</option>
+                        @endforeach
+                    </optgroup>
+                </select>
+                @else
+                @endif
+
+
                     <button type="submit" class="p-2 btn addBtnStyle taskBtn">عرض التكاليف</button>
                 </div>
             </form>
@@ -132,24 +130,20 @@
                 <table class="table table-hover table-dark mt-5">
                     <thead class="thead-colorful">
                         <tr>
-                            <th scope="col">اسم المحاضرة</th>
-                            <th scope="col">ملف المحاضرة</th>
-                            <th scope="col">التاريخ</th>
+                            <th scope="col">اسم التكليف</th>
+                            <th scope="col">الفرقه</th>
+                            <th scope="col">الماده</th>
                             <th scope="col">عرض</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @if (isset($assiment))
-                            @foreach ($assiment as $assiments)
-                                <tr>
-                                    <th scope="row">{{ $assiments->Name }}</th>
-                                    <td>{{ $assiments->grade->Name }}</td>
-                                    <td>{{ $assiments->course->Name }}</td>
-                                </tr>
-                            @endforeach
-                        @else
+                      @foreach ($course as $coures )
+                      <tr>
+                        <th scope="row">{{$coures->Name  }}</th>
 
-                        @endif
+                    </tr>
+                      @endforeach
+
 
                     </tbody>
                 </table>
