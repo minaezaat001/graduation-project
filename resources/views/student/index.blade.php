@@ -108,7 +108,7 @@
                 <div class="col-6 mb-3">
                     @foreach ($course as $courses)
                         <div class="box-content">
-                            <a href="{{ route('student.getLecByCourse', ['course' => $courses->id]) }}">
+                            <a href="{{ route('student.getLecByCourse', ['selectedcourse' => $courses->id]) }}">
                                 <img class="w-100" src="images/slider/slider4.jpg" alt="" />
                                 <h4 class="title-box">{{ $courses->Name }}</h4>
                             </a>

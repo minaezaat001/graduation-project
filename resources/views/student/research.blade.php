@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>الابحاث</title>
+    <title>التكاليف</title>
     <!-- Links -->
     <link rel="stylesheet" href={{ URL::asset('student/css/vandors/bootstrap.min-rtl.css') }} />
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap" rel="stylesheet" />
@@ -106,59 +106,65 @@
     <section class="content-luatchar py-5">
         <div class="container">
             <h4 class="mb-4">الابحاث</h4>
-            <div class="btns d-flex">
-                <select data-menu>
-                    <optgroup label="اختار الماده ">
-                        <option value="" hidden>اختار المادة</option>
-                        <option value="first">الاولي</option>
-                        <option value="second">الثانية</option>
-                        <option value="third">الثالثة</option>
-                        <option value="fourth">الرابعة</option>
-                    </optgroup>
-                </select>
-                <button type="button" class="p-2 btn addBtnStyle searchBtn">عرض الابحاث</button>
-            </div>
-            <div class="table-responsive search-show">
+            <form method="post" action="{{ route('student.researchpost') }}">
+                @csrf
+                <div class="btns d-flex">
+                    @if (isset($course))
+                        <select data-menu name="course_id">
+                            <optgroup label="اختار الماده ">
+                                <option value="" hidden>اختار المادة</option>
+
+                                @foreach ($course as $courses)
+                                    <option value="{{ $courses->id }}" @if (isset($selectedcourse) and $courses->id == $selectedcourse->id) selected @endif>{{ $courses->Name }}</option>
+                                @endforeach
+                            </optgroup>
+                        </select>
+
+                    @else
+                    @endif
+
+
+                    <button type="submit" class="p-2 btn addBtnStyle taskBtn">عرض الابحاث</button>
+                </div>
+            </form>
+            <div class="table-responsive ">
                 <table class="table table-hover table-dark mt-5">
-                    <thead>
+                    <thead class="thead-colorful">
                         <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
-                            <th scope="col">Handle</th>
+                            <th scope="col"> الماده</th>
+                            <th scope="col">اسم البحث</th>
+
+                            <th scope="col">ارسال</>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td><button type="button" class="py-2 px-3 btn btnStyle" data-toggle="modal"
-                                    data-target="#exampleModalCenter">ارسال</button></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            <td><button type="button" class="py-2 px-3 btn btnStyle" data-toggle="modal"
-                                    data-target="#exampleModalCenter">ارسال</button></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                            <td><button type="button" class="py-2 px-3 btn btnStyle" data-toggle="modal"
-                                    data-target="#exampleModalCenter">ارسال</button></td>
-                        </tr>
+
+                        @if (isset($selectedcourse))
+                            @foreach ($selectedcourse->assiment as $assiment)
+
+                                @if ($assiment->Kind == 0)
+
+                                    <tr>
+                                        <th scope="row">{{ $assiment->course->Name }}</th>
+                                        <td>{{ $assiment->Name }}</td>
+                                        <td><a href="{{ route('student.getUploadAssimentOrResearch', ['assiment' => $assiment->id]) }}"
+                                                class="py-2 px-3 btn btnStyle ">ارسال</a></td>
+                                    </tr>
+                                @endif
+                            @endforeach
+
+
+                        @else
+
+                        @endif
+
+
+
                     </tbody>
                 </table>
             </div>
 
             <!-- Send Form -->
-
             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
@@ -171,8 +177,9 @@
                         </div>
                         <div class="modal-body">
                             <div class="box-file">
-                                <input type="file" name="file-1[]" id="file-1" class="inputfile inputfile-1"
+                                <input type="file" name="attach" id="file-1" class="inputfile inputfile-1"
                                     data-multiple-caption="{count} files selected" multiple />
+
                                 <label for="file-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17"
                                         viewBox="0 0 20 17">
                                         <path
@@ -182,10 +189,11 @@
                             </div>
                         </div>
                         <div class="modal-footer mt-3">
-                            <button class="border w-100 border mt-3 p-2 btn btnStyle">ارسل</button>
+                            <button type="submit" class="border w-100 border mt-3 p-2 btn btnStyle">ارسل</button>
                             <button class="border w-100 border mt-3 p-2 btn closeBtnStyle" data-dismiss="modal"
                                 aria-label="Close">اغلاق</button>
                         </div>
+
                     </div>
                 </div>
             </div>

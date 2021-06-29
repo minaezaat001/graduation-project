@@ -23,14 +23,18 @@ class StudentController extends Controller
     }
 
 
-    public function getLecByCourse(Course $course)
+    public function getLecByCourse(Course $selectedcourse)
     {
 
-      return view('student.lecturesByCources',['course'=>$course]);
+       $student =Auth::user()->student;
+        $course=$student->course;
+
+      return view('student.lectures',['course'=>$course,'selectedcourse'=>$selectedcourse]);
     }
 
     public function getlecture()
     {
+
         $student =Auth::user()->student;
         $course=$student->course;
         return view('student.lectures',['course'=>$course]);
@@ -38,10 +42,12 @@ class StudentController extends Controller
 
     public function postlecture(Request $request)
     {
-        $course= $request->course_id;
-        // dd($course->lecture);
-        $lecture=Lecture::where('course_id','=',$course)->get();
-        return view('student.lectures',['lecture'=>$lecture]);
+        $student =Auth::user()->student;
+        $course=$student->course;
+        $selectedcourse= Course::where('id','=',$request->course_id)->first();
+
+
+        return view('student.lectures',['course'=>$course ,'selectedcourse'=>$selectedcourse]);
     }
 
     public function assimentget()
@@ -53,24 +59,47 @@ class StudentController extends Controller
 
     public function assimentpost(request $request)
     {
-        $course =Course::find($request->course_id);
-         return view('student.assiment',['course'=>$course]);
+
+        $student =Auth::user()->student;
+        $course=$student->course;
+
+        $selectedcourse =Course::find($request->course_id);
+
+
+
+        return view('student.assiment',['course'=>$course,'selectedcourse'=>$selectedcourse]);
 
     }
     public function researchget()
     {
-        $student =Auth::user()->student;
+         $student =Auth::user()->student;
         $course=$student->course;
         return view('student.research',['course'=>$course]);
     }
 
     public function researchpost(Request $request)
     {
-        $course= $request->course_id;
-        $assiment = assiment::where('course_id','=',$course)->where('Kind','=',0)->get();
-        return view('student.research',['assiment'=>$assiment]);
+        $student =Auth::user()->student;
+        $course=$student->course;
+
+        $selectedcourse =Course::find($request->course_id);
+          return view('student.research',['course'=>$course,'selectedcourse'=>$selectedcourse]);
+
 
     }
+
+    public function getUploadAssimentOrResearch(assiment $assiment)
+    {
+        // $stu=Auth::user();
+        // dd($assiment,$stu);
+      return view('student.uploadAssimentAndReseach');
+    }
+
+    public function uploadAssimentOrResearch(Request $request)
+    {
+        dd($request->all());
+    }
+
 
 
 

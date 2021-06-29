@@ -158,6 +158,8 @@
                         <th scope="col">اسم البحث</th>
                         <th scope="col">الفرقه الدراسيه</th>
                         <th scope="col">اسم الماده</th>
+                        <th scope="col"> عرض التكاليف المرسله</th>
+
 
                     </tr>
                 </thead>
@@ -167,7 +169,8 @@
                             <th scope="row">{{ $assiments->Name }}</th>
                             <td>{{ $assiments->grade->Name }}</td>
                             <td>{{ $assiments->course->Name }}</td>
-
+                            <td><a href="{{ route('instructor.StudentsAssiment', ['assiment' => $assiments->id]) }}"
+                                    target="_blank">عرض</td>
                         </tr>
                     @endforeach
 

@@ -30,8 +30,11 @@ Route::get('/', function () {
 
 ################################# Start Instructor Routes #################################
 
-Route::prefix('instructor')->group(function () {
-         Route::get('/getStudentsResearches/{assiment}','instructorController@getStudentsResearch')->name('instructor.StudentsResearches');
+    Route::prefix('instructor')->group(function () {
+
+    Route::get('/getStudentsResearches/{assiment}','instructorController@getStudentsResearch')->name('instructor.StudentsResearches');
+
+    Route::get('/getStudentsAssiment/{assiment}','instructorController@getStudentsAssiment')->name('instructor.StudentsAssiment');
 
 
     Route::get('/createLec','instructorController@createLecture')->name('instructor.createLec');
@@ -43,6 +46,8 @@ Route::prefix('instructor')->group(function () {
 
      Route::get('/createResearch','instructorController@createResearch')->name('instructor.createResearch');
      Route::post('/storeResearch','instructorController@storeResearch')->name('instructor.storeResearch');
+
+
 
 
 
@@ -69,12 +74,18 @@ Route::prefix('student')->group(function () {
     Route::get('/getlecture','StudentController@getlecture')->name('student.getlecture');
 
     Route::post('/postlecture','StudentController@postlecture')->name('student.postlecture');
+
     Route::get('/assimentget','StudentController@assimentget')->name('student.assimentget');
 
     Route::post('/assimentpost','StudentController@assimentpost')->name('student.assimentpost');
 
-         Route::get('/{course}','StudentController@getLecByCourse')->name('student.getLecByCourse');
+    Route::get('/researchget','StudentController@researchget')->name('student.researchget');
 
+    Route::post('/researchpost','StudentController@researchpost')->name('student.researchpost');
+
+   Route::get('/{selectedcourse}','StudentController@getLecByCourse')->name('student.getLecByCourse');
+   Route::get('/getUploadAssimentOrResearch/{assiment}','StudentController@getUploadAssimentOrResearch')->name('student.getUploadAssimentOrResearch');
+   Route::post('/getUploadAssimentOrResearch','StudentController@postUploadAssimentOrResearch')->name('student.postUploadAssimentOrResearch');
 
     });
 

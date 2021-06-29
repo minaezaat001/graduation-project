@@ -97,6 +97,13 @@ class instructorController extends Controller
         return view('instructor.studentsResearches',['researches'=>$researches]);
     }
 
+     public function getStudentsAssiment(assiment $assiment)
+    {
+        $researches=$assiment;
+
+        return view('instructor.studentsAssiment',['researches'=>$researches]);
+    }
+
 
 
       public function createAssiment()

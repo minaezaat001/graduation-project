@@ -17,7 +17,7 @@
          </li>
 
          <li class="nav-item">
-             <a href="#" class="nav-link">
+             <a href="{{ route('student.researchget') }}" class="nav-link">
                  <span>الابحاث</span> <svg class="icon icon-paste">
                      <use xlink:href="#icon-paste"></use>
                  </svg></a>

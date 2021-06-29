@@ -119,7 +119,7 @@
                         </optgroup>
                     </select>
                 @else
-                    {{-- <option value="{{ $lecture->course->id }}">{{ $lecture->course->Name }}</option> --}}
+
                 @endif
 
                 @csrf

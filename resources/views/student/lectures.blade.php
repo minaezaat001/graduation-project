@@ -108,19 +108,15 @@
             <div class="container">
                 <h4 class="mb-4">المحاضرات</h4>
                 <div class="btns d-flex">
-
-                    @if (isset($course))
-                        <select data-menu name="course_id">
-                            <optgroup label="اختار الماده ">
-                                <option value="" hidden>اختار المادة</option>
-                                @foreach ($course as $courses)
-                                    <option value="{{ $courses->id }}">{{ $courses->Name }}</option>
-                                @endforeach
-                            </optgroup>
-                        </select>
-                    @else
-                        {{-- <option value="{{ $lecture->course->id }}">{{ $lecture->course->Name }}</option> --}}
-                    @endif
+                    <select data-menu name="course_id">
+                        <optgroup label="اختار الماده ">
+                            <option value="" hidden>اختار المادة</option>
+                            @foreach ($course as $courses)
+                                <option value="{{ $courses->id }}" @if (isset($selectedcourse) and $courses->id == $selectedcourse->id) selected @endif>
+                                    {{ $courses->Name }}</option>
+                            @endforeach
+                        </optgroup>
+                    </select>
 
                     @csrf
                     <button type="submit" class="p-2 btn addBtnStyle">عرض المحاضرات</button>
@@ -137,8 +133,8 @@
                 </tr>
             </thead>
             <tbody>
-                @if (isset($lecture))
-                    @foreach ($lecture as $lectures)
+                @if (isset($selectedcourse))
+                    @foreach ($selectedcourse->lecture as $lectures)
                         <tr>
                             <th scope="row">{{ $lectures->Name }}</th>
                             @foreach ($lectures->attachmentlecture as $lec)
@@ -149,10 +145,11 @@
                         </tr>
                     @endforeach
                 @else
-                    fdfsdf
+
                 @endif
 
             </tbody>
+
         </table>
     </div>
     </div>

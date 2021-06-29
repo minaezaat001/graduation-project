@@ -110,39 +110,51 @@
                 @csrf
                 <div class="btns d-flex">
                     @if (isset($course))
-                   <select data-menu name="course_id">
-                    <optgroup label="اختار الماده ">
-                        <option value="" hidden>اختار المادة</option>
+                        <select data-menu name="course_id">
+                            <optgroup label="اختار الماده ">
+                                <option value="" hidden>اختار المادة</option>
 
-                        @foreach ($course as $courses)
-                            <option value="{{ $courses->id }}">{{ $courses->Name }}</option>
-                        @endforeach
-                    </optgroup>
-                </select>
-                @else
-                @endif
+                                @foreach ($course as $courses)
+                                    <option value="{{ $courses->id }}" @if (isset($selectedcourse) and $courses->id == $selectedcourse->id) selected @endif>{{ $courses->Name }}</option>
+                                @endforeach
+                            </optgroup>
+                        </select>
+
+                    @else
+                    @endif
 
 
                     <button type="submit" class="p-2 btn addBtnStyle taskBtn">عرض التكاليف</button>
                 </div>
             </form>
-            <div class="table-responsive task-show">
+            <div class="table-responsive ">
                 <table class="table table-hover table-dark mt-5">
                     <thead class="thead-colorful">
                         <tr>
+                            <th scope="col"> الماده</th>
                             <th scope="col">اسم التكليف</th>
-                            <th scope="col">الفرقه</th>
-                            <th scope="col">الماده</th>
-                            <th scope="col">عرض</th>
+
+                            <th scope="col">ارسال</>
                         </tr>
                     </thead>
                     <tbody>
-                      @foreach ($course as $coures )
-                      <tr>
-                        <th scope="row">{{$coures->Name  }}</th>
+                        @if (isset($selectedcourse))
+                            @foreach ($selectedcourse->assiment as $assiment)
+                                @if ($assiment->Kind == 1)
+                                    <tr>
+                                        <th scope="row">{{ $assiment->course->Name }}</th>
+                                        <td>{{ $assiment->Name }}</td>
+                                        <td><button type="button" class="py-2 px-3 btn btnStyle" data-toggle="modal"
+                                                data-target="#exampleModalCenter">ارسال</button></td>
+                                    </tr>
+                                @endif
+                            @endforeach
 
-                    </tr>
-                      @endforeach
+
+                        @else
+
+                        @endif
+
 
 
                     </tbody>

@@ -1,18 +1,16 @@
-$(document).ready(function () {
+$(document).ready(function() {
     const menuWidth = $(".menu").innerWidth();
     $(".menu").css("margin-right", -menuWidth);
-    $(".nav-toggle").click(function () {
+    $(".nav-toggle").click(function() {
         $(".menu").toggleClass("show");
         if ($(".menu").hasClass("show")) {
-            $(".menu").animate(
-                {
+            $(".menu").animate({
                     marginRight: -menuWidth,
                 },
                 500
             );
         } else {
-            $(".menu").animate(
-                {
+            $(".menu").animate({
                     marginRight: 0,
                 },
                 500
@@ -20,10 +18,10 @@ $(document).ready(function () {
         }
     });
     // show
-    $(".taskBtn").click(function () {
-        $(".task-show").slideDown();
-    });
-    $(".searchBtn").click(function () {
-        $(".search-show").slideDown();
-    });
+    // $(".taskBtn").click(function () {
+    //     $(".task-show").slideDown();
+    // });
+    // $(".searchBtn").click(function () {
+    //     $(".search-show").slideDown();
+    // });
 });
