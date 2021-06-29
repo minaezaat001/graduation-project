@@ -144,8 +144,8 @@
                                     <tr>
                                         <th scope="row">{{ $assiment->course->Name }}</th>
                                         <td>{{ $assiment->Name }}</td>
-                                        <td><button type="button" class="py-2 px-3 btn btnStyle" data-toggle="modal"
-                                                data-target="#exampleModalCenter">ارسال</button></td>
+                                        <td><a href="{{ route('student.getUploadAssimentOrResearch', ['assiment' => $assiment->id]) }}"
+                                                class="py-2 px-3 btn btnStyle ">ارسال</a></td>
                                     </tr>
                                 @endif
                             @endforeach
