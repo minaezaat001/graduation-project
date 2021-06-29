@@ -104,9 +104,9 @@
          </div>
      </header>
      <form method="POST" action="{{ route('student.postUploadAssimentOrResearch') }}" enctype="multipart/form-data">
-
-         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+         @csrf
+         <div class="" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+             aria-hidden="true">
              <div class="modal-dialog modal-dialog-centered" role="document">
                  <div class="modal-content">
                      <div class="modal-header">
@@ -131,8 +131,9 @@
                      </div>
                      <div class="modal-footer mt-3">
                          <button type="submit" class="border w-100 border mt-3 p-2 btn btnStyle">ارسل</button>
-                         <button class="border w-100 border mt-3 p-2 btn closeBtnStyle" data-dismiss="modal"
-                             aria-label="Close">اغلاق</button>
+                         <a href="{{ route('student.researchget') }}"
+                             class="border w-100 border mt-3 p-2 btn closeBtnStyle" data-dismiss="modal"
+                             aria-label="Close">اغلاق</a>
                      </div>
 
                  </div>

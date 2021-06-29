@@ -90,12 +90,11 @@ class StudentController extends Controller
 
     public function getUploadAssimentOrResearch(assiment $assiment)
     {
-        // $stu=Auth::user();
-        // dd($assiment,$stu);
-      return view('student.uploadAssimentAndReseach');
+         $user=Auth::user();
+      return view('student.uploadAssimentAndReseach',['user'=>$user,'assiment'=>$assiment]);
     }
 
-    public function uploadAssimentOrResearch(Request $request)
+    public function postUploadAssimentOrResearch (Request $request)
     {
         dd($request->all());
     }

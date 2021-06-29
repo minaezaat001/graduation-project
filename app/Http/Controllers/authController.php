@@ -65,4 +65,8 @@ class authController extends Controller
     }
 
 
+    public function getlogin()
+    {
+        return view('login');
+    }
 }

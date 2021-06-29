@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('login');
+    return view('home');
 });
 
 
@@ -96,7 +96,7 @@ Route::prefix('student')->group(function () {
 
 
 
-
+Route::get('/login','authController@getlogin')->name('auth.Getlogin');
  Route::post('/login','authController@login')->name('auth.login');
     Route::get('/test', 'authController@any')->name('test');
 
