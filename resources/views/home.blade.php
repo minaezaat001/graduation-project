@@ -58,8 +58,8 @@
         <section class="py-5 mt-5">
             <div class="text-center mt-5 pt-5">
                 <h2 class="pt-5">مرحبا بكم</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus illo perferendis, exercitationem
-                    corrupti sit illum enim totam magnam delectus tenetur.</p>
+                <p>معاهـد المدينـة العليـا -د.محمـــــد حسيـــن
+                    معهد المدينة العالـي للإدارة والتكنولوجيـا</p>
             </div>
         </section>
 
@@ -70,8 +70,9 @@
                         data-aos-duration="1500">
                         <div class="desc">
                             <h2>الاهداف</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus illo perferendis,
-                                exercitationem corrupti sit illum enim totam magnam delectus tenetur.</p>
+                            <p>توفير خريج مؤهل معرفيا ومهارياً ومهنياً لسوق العمل المحلى والأقليمى ،
+                                والإرتقاء بمستوى جودة العملية التعليمية وفقاً للمعايير ، المرجعية والمحلية والدولية وفقاً لأحتياجات سوق العمل
+                            </p>
                         </div>
                     </div>
                     <div class="col-md-6" data-aos="fade-down-right" data-aos-easing="ease-out-cubic"
@@ -93,8 +94,9 @@
                         data-aos-duration="1500">
                         <div class="desc">
                             <h2>الرؤية</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus illo perferendis,
-                                exercitationem corrupti sit illum enim totam magnam delectus tenetur.</p>
+                            <p>نتطلع إلي أن نحتل مكانة متميزة بين مؤسسات التعليم العالي فى مجالات علوم الحاسب ونظم المعلومات الإدارية والعلوم التجارية
+                                ، مع الإلتزام المستمر بدعم البحث العلمى وتنمية المجتمع
+                               </p>
                         </div>
                     </div>
                 </div>
@@ -108,8 +110,8 @@
                         data-aos-duration="1000">
                         <div class="desc">
                             <h2>الرسالة</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus illo perferendis,
-                                exercitationem corrupti sit illum enim totam magnam delectus tenetur.</p>
+                            <p>إعداد خريج متميز معرفياً ومهنياً لتلبية احتياجات سوق العمل محلياً وأقليميا فى مجالات علوم الحاسب ونظم المعلومات الإدارية ، و العلوم التجارية ، وتطوير البيئة التعليمية والإدارية لمواكبة المستجدات العلمية والتكنولوجية
+                               </p>
                         </div>
                     </div>
                     <div class="col-md-6" data-aos="zoom-in-up" data-aos-easing="ease-out-cubic"

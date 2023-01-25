@@ -9,9 +9,10 @@ class Attachmentassiment extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['attach','assiment_id','student_id'];
+    protected $fillable = ['attach','assiment_id','student_id','updated_at','created_at'];
 
     protected $table = 'attachmentassiment';
+    public $timestamps = false;
 
     //start relation
 

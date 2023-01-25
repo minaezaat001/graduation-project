@@ -34,9 +34,19 @@
                 </svg>
             </a>
         </li>
+
+        <li>
+            <a href="{{ route('instructor.tutorial') }}">
+
+                <span>محتوي</span>
+                <svg class="icon icon-books">
+                    <use xlink:href="#icon-books"></use>
+                </svg>
+            </a>
+        </li>
         <li>
 
-            <a href="#">
+            <a href="{{ route('instructor.quiz') }}">
                 <span>الامتحان</span>
                 <svg class="icon icon-files-empty">
                     <use xlink:href="#icon-files-empty"></use>

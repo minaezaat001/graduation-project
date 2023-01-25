@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\assiment;
+use App\Models\Attachmentassiment;
 use App\Models\Course;
 use App\Models\Lecture;
 use App\Models\Student;
@@ -96,7 +97,23 @@ class StudentController extends Controller
 
     public function postUploadAssimentOrResearch (Request $request)
     {
-        dd($request->all());
+        $fileName= $request->attach->getclientoriginalname();
+        $pa=  $request->attach->move('assi',$fileName);
+        $student = Auth::user()->student;
+
+        Attachmentassiment::create([
+
+            'attach'=>$pa,
+            'assiment_id'=>$request->assiment_id,
+            'student_id'=>$student->id
+
+        ]);
+        return redirect(route('student.index'));
+
+    }
+    public function tutorial()
+    {
+        return view('student.tutorial');
     }
 
 

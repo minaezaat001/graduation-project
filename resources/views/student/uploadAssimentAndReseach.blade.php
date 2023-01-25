@@ -105,6 +105,7 @@
      </header>
      <form method="POST" action="{{ route('student.postUploadAssimentOrResearch') }}" enctype="multipart/form-data">
          @csrf
+         <input hidden value="{{ $assiment->id }}" name="assiment_id">
          <div class="" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
              aria-hidden="true">
              <div class="modal-dialog modal-dialog-centered" role="document">

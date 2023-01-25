@@ -37,7 +37,7 @@ class authController extends Controller
            }
 
     }else{
-          return 'kosomakk mesh tmam';
+          return 'User Name is not found';
      }
 
       }

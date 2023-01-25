@@ -47,6 +47,10 @@ Route::get('/', function () {
      Route::get('/createResearch','instructorController@createResearch')->name('instructor.createResearch');
      Route::post('/storeResearch','instructorController@storeResearch')->name('instructor.storeResearch');
 
+     Route::get('/quiz','instructorController@quiz')->name('instructor.quiz');
+     Route::get('/tutorial','instructorController@tutorial')->name('instructor.tutorial');
+
+
 
 
 
@@ -70,7 +74,6 @@ Route::prefix('student')->group(function () {
 
      Route::get('/index','StudentController@index')->name('student.index');
 
-
     Route::get('/getlecture','StudentController@getlecture')->name('student.getlecture');
 
     Route::post('/postlecture','StudentController@postlecture')->name('student.postlecture');
@@ -82,10 +85,13 @@ Route::prefix('student')->group(function () {
     Route::get('/researchget','StudentController@researchget')->name('student.researchget');
 
     Route::post('/researchpost','StudentController@researchpost')->name('student.researchpost');
+    Route::get('/tutorial','StudentController@tutorial')->name('student.tutorial');
+
 
    Route::get('/{selectedcourse}','StudentController@getLecByCourse')->name('student.getLecByCourse');
    Route::get('/getUploadAssimentOrResearch/{assiment}','StudentController@getUploadAssimentOrResearch')->name('student.getUploadAssimentOrResearch');
    Route::post('/getUploadAssimentOrResearch','StudentController@postUploadAssimentOrResearch')->name('student.postUploadAssimentOrResearch');
+
 
     });
 

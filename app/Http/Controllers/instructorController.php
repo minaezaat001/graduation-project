@@ -132,7 +132,15 @@ class instructorController extends Controller
 
         ]);
 
-        return redirect(route('instructor.storeAssiment'));
+        return redirect(route('instructor.createAssiment'));
+    }
+    public function quiz()
+    {
+      return view('instructor.quiz');
+    }
+    public function tutorial()
+    {
+        return view('instructor.tutorial');
     }
 
 }
